@@ -1,0 +1,99 @@
+html {
+    font-family: sans-serif;
+  }
+*{
+    border-radius: 10px;
+}
+  body {
+    margin: 0;
+  }
+
+  header {
+    background: rgb(12, 231, 104);
+    height: 100px;
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    line-height: 100px;
+    margin: 0;
+  }
+
+  article {
+    padding: 10px;
+    margin: 10px;
+    background: rgb(34, 163, 55);
+  }
+
+
+  section {
+    display: flex;
+  }
+
+  article {
+    flex: 1 200px;
+  }
+
+  article:nth-of-type(3) {
+    flex: 3 200px;
+    display: flex;
+    flex-flow: column;
+  }
+
+  article:nth-of-type(3) div:first-child {
+    flex: 1 100px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 10px;background-color: bisque;
+
+    justify-content: space-around;
+  }
+
+  button {
+    flex: 1 auto;
+    margin: 5px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .a1{
+    margin: 10px;
+    flex: 1 200px;        background: burlywood; height: 200px;
+  }
+  .a2{        margin: 10px;
+
+    flex: 2 200px;        background: burlywood; height: 200px;
+
+  }.a3{        margin: 10px;
+
+    flex: 1 200px;        background: burlywood; height: 200px;
+
+  }
+  .hi{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 200px;
+    margin: 5px;
+    justify-content: space-between;
+  }
+  .hi>div{
+background-color: aquamarine;
+margin: 5px;
+height: 100%;
+width: 25%;
+  }
+  .hi>section{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 200px;
+    margin-right: 10px;
+  }
+  .hi>section>div{
+background-color: aquamarine;
+margin: 5px;
+height: 100%;
+width: 100%;
+  }

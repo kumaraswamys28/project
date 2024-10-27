@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Webpage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="hi.png" alt="Company Logo" />
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <ul class="social">
+                <li aria-label="Twitter"><a href="#" aria-hidden="true"><i class="fab fa-twitter"></i></a></li>
+                <li aria-label="GitHub"><a href="#" aria-hidden="true"><i class="fab fa-github"></i></a></li>
+                <li aria-label="LinkedIn"><a href="#" aria-hidden="true"><i class="fab fa-linkedin"></i></a></li>
+                <li aria-label="Instagram"><a href="#" aria-hidden="true"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <span></span>
+    <section>
+        <div class="main" id="home">
+            <div class="imgdiv">
+                <img class="img" src="pro.jpg" alt="Profile" />
+            </div>
+            <div class="content">
+                <h1>Hi, I'm Kumar.</h1>
+                <p>I'm a passionate full-stack developer with expertise in web technologies and a love for learning. My journey in tech began with an enthusiasm for coding, which has evolved into a career focused on building innovative web applications.</p>
+            </div>
+        </div>
+
+        <div class="main" id="profile">
+            <h2>About Me</h2>
+            <p>I graduated with a Bachelor of Computer Applications (B.C.A.) in September 2024. I have experience with various programming languages, frameworks, and technologies including Java, Python, JavaScript, and the MERN stack.</p>
+            <p>In my free time, I enjoy exploring new technologies, contributing to open-source projects, and enhancing my skills through continuous learning.</p>
+        </div>
+
+        <div class="main" id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li>
+                    <h3>Project Management App</h3>
+                    <p>A full-stack application for managing projects and tasks. Built using MERN stack. <a href="#" target="_blank">View Project</a></p>
+                </li>
+                <li>
+                    <h3>Personal Portfolio</h3>
+                    <p>A portfolio website to showcase my skills and projects. Built using HTML, CSS, and JavaScript. <a href="#" target="_blank">View Project</a></p>
+                </li>
+                <li>
+                    <h3>Kaggle Data Analysis</h3>
+                    <p>An analysis of a Kaggle dataset using Python and machine learning techniques. <a href="#" target="_blank">View Project</a></p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main" id="contact">
+            <h2>Contact Me</h2>
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Kumaraswamy S. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

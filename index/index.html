@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#div1">Data Types</a></li>
+            <li><a href="#div2">Control Structures</a></li>
+            <li><a href="#div3">Functions</a></li>
+            <li><a href="#div4">Objects</a></li>
+            <li><a href="#div5">Arrays</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Understanding JavaScript Concepts</h1>
+        <p>A beginner's guide to essential JavaScript concepts.</p>
+    </header>
+
+    <div id="div1" class="concept">
+        <h2>Data Types</h2>
+        <p>JavaScript supports several data types, categorized as:</p>
+        <ul>
+            <li><strong>Primitive Types:</strong> Include strings, numbers, booleans, null, undefined, and symbols.</li>
+            <li><strong>Non-Primitive Types:</strong> Include objects and arrays, which can store collections of data.</li>
+        </ul>
+        <p>Examples:</p>
+        <pre><code>
+let age = 25;                     // Number
+const birthYear = 1999;          // Number
+var name = "goku";                // String
+
+let colors = ["red", "green", "blue"]; // Array
+let person = { name: "John", age: 30 }; // Object
+        </code></pre>
+        <p>Accessing Data:</p>
+        <pre><code>
+console.log(colors[0]); // Output: red
+console.log(person['name']); // Output: John
+        </code></pre>
+    </div>
+
+    <div id="div2" class="concept">
+        <h2>Control Structures</h2>
+        <p>Control structures manage the flow of your program, including:</p>
+        <ul>
+            <li><strong>Conditional Statements:</strong> Used for decision-making.</li>
+            <li><strong>Loops:</strong> Used to execute a block of code multiple times.</li>
+        </ul>
+        <p>Examples:</p>
+        <pre><code>
+let age = 18;
+if (age >= 18) {
+  console.log("You are an adult.");
+} else {
+  console.log("You are a minor.");
+}
+
+for (let i = 0; i < 5; i++) {
+    if (i === 2) break; // Exits the loop when i is 2
+    console.log("Number:", i); // Outputs 0, 1
+}
+
+let day = 3;
+switch (day) {
+  case 1: 
+    dayName = "Monday"; 
+    break;
+  case 2: 
+    dayName = "Tuesday"; 
+    break;
+  case 3: 
+    dayName = "Wednesday"; 
+    break;
+  default: 
+    dayName = "Unknown day"; 
+}
+        </code></pre>
+    </div>
+
+    <div id="div3" class="concept">
+        <h2>Functions</h2>
+        <p>Functions are reusable blocks of code in JavaScript, declared in different ways:</p>
+        <ul>
+            <li><strong>Function Declaration:</strong> Can be called before it is defined.</li>
+            <li><strong>Function Expression:</strong> Can only be called after it is defined.</li>
+            <li><strong>Arrow Functions:</strong> A concise syntax introduced in ES6.</li>
+        </ul>
+        <p>Examples:</p>
+        <pre><code>
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+const greetex = function(name) {
+    return `Hello, ${name}!`;
+};
+
+const greetar = (name) => `Hello, ${name}!`;
+        </code></pre>
+        <p>Calling Functions:</p>
+        <pre><code>
+console.log(greet("Zoro")); // Output: Hello, Zoro!
+console.log(greetex("Bob")); // Output: Hello, Bob!
+console.log(greetar("Charlie")); // Output: Hello, Charlie!
+        </code></pre>
+    </div>
+
+    <div id="div4" class="concept">
+        <h2>Objects</h2>
+        <p>Objects are collections of key-value pairs:</p>
+        <p>Example:</p>
+        <pre><code>
+const person = {
+    name: "Zoro",
+    age: 25,
+    profession: "Developer"
+};
+
+// Accessing properties
+console.log(Object.keys(person)); // Output: ["name", "age", "profession"]
+console.log(person.name); // Output: Zoro
+        </code></pre>
+    </div>
+
+    <div id="div5" class="concept">
+        <h2>Arrays</h2>
+        <p>Arrays are used to store multiple values in a single variable:</p>
+        <p>Common Array Methods:</p>
+        <ul>
+            <li><strong>push()</strong>: Adds an item to the end of an array.</li>
+            <li><strong>pop()</strong>: Removes the last item from an array.</li>
+            <li><strong>shift()</strong>: Removes the first item from an array.</li>
+            <li><strong>unshift()</strong>: Adds an item to the beginning of an array.</li>
+            <li><strong>concat()</strong>: Combines two or more arrays.</li>
+            <li><strong>join()</strong>: Creates a string from the array's elements.</li>
+            <li><strong>slice()</strong>: Returns a shallow copy of a portion of an array.</li>
+            <li><strong>splice()</strong>: Changes the contents of an array by removing or replacing existing elements.</li>
+        </ul>
+        <p>Example:</p>
+        <pre><code>
+const fruits = ["apple", "banana", "orange"];
+fruits.push("grape"); // Adds 'grape'
+console.log(fruits); // Output: ["apple", "banana", "orange", "grape"]
+        </code></pre>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kumaraswamy S . All rights reserved.</p>
+    </footer>
+</body>
+</html>

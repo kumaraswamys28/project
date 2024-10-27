@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url("1354102.png") no-repeat center center fixed;
+    background-size: cover;
+    font-family: "League Spartan", sans-serif;
+}
+
+span {
+    display: block;
+    border-radius: 5px;
+    margin: auto;
+    width: 99%;
+    height: 5px;
+    margin-top: 5px;
+    position: sticky;
+    top: 5px;
+    z-index: 99;
+    background: linear-gradient(to right, red, yellow, #00CB07, #07A9FF, #1044FF, #1B2F7F, #D92F7F);
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    height: 60px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul.menu {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    list-style-type: none;
+}
+
+nav ul.menu li {
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+nav ul.menu li:hover {
+    color: #a200ff;
+}
+
+nav ul.social {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+nav ul.social li {
+    margin-left: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+nav ul.social li a {
+    color: inherit;
+}
+
+footer {
+    height: 6vh;
+    margin: 0;
+    width: 100%;
+    background-color: rgba(255, 238, 0, 0.568);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgdiv,
+.content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.img {
+    width: 60%;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(7, 169, 255, 0.7);
+}
+
+.main h1,
+.main h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.main p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.main ul {
+    list-style-type: none;
+}
+
+.main ul li {
+    margin: 15px 0;
+}
+
+.main ul li h3 {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.main ul li p {
+    font-size: 16px;
+    color: #555;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    nav ul.menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    nav ul.social {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .imgdiv,
+    .content {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+    }
+
+    .main {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .main h1 {
+        font-size: 28px;
+    }
+
+    .main h2 {
+        font-size: 24px;
+    }
+
+    form input,
+    form textarea {
+        font-size: 16px;
+    }
+
+    form button {
+        font-size: 16px;
+    }
+}
