@@ -17,6 +17,15 @@ nav {
     width: 100%;
     top: 0;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 nav ul {
@@ -24,11 +33,10 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav a {
@@ -45,7 +53,7 @@ nav a:hover {
 
 header {
     text-align: center;
-    margin-top: 60px; /* Offset for fixed nav */
+    margin-top: 60px;
     padding: 20px;
 }
 
@@ -59,8 +67,8 @@ header p {
 }
 
 .concept {
-    padding: 80px 20px; /* Padding to offset fixed nav */
-    min-height: 100vh; /* Full page height */
+    padding: 80px 20px;
+    min-height: 100vh;
     background-color: #f9f9f9;
     border-bottom: 1px solid #ddd;
 }
@@ -74,7 +82,7 @@ pre {
     background-color: #f4f4f4;
     border: 1px solid #ccc;
     padding: 10px;
-    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-x: auto;
     border-radius: 4px;
 }
 
@@ -83,4 +91,134 @@ footer {
     padding: 20px;
     background-color: #333;
     color: white;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger menu */
+    }
+
+    nav ul {
+        display: none; /* Hide links by default */
+        flex-direction: column; /* Stack items vertically */
+        position: absolute;
+        top: 60px; /* Below the navbar */
+        left: 0;
+        background-color: #333;
+        width: 100%; /* Full width */
+        z-index: 999; /* Layer above content */
+    }
+
+    nav ul.active {
+        display: flex; /* Show links when active */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Space out items vertically */
+    }
+}
+
+/* Adjustments for even smaller screens */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* Further adjust header size */
+    }
+
+    header p {
+        font-size: 0.9em; /* Further adjust paragraph size */
+    }
+}
+
+
+
+
+
+
+
+
+/* Base styles for navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0 15px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hamburger icon styling */
+.hamburger {
+    cursor: pointer;
+    font-size: 24px; /* Base size for larger screens */
+    color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #nav-links {
+        display: none; /* Hide nav links by default */
+        flex-direction: column; /* Stack vertically */
+        background-color: #444;
+        position: absolute;
+        top: 50px; /* Adjust as needed */
+        right: 0;
+        width: 200px; /* Adjust width as needed */
+    }
+
+    #nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    /* Adjust font size for mobile */
+    body {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    .hamburger {
+        font-size: 20px; /* Slightly smaller hamburger icon */
+    }
+
+    ul {
+        flex-direction: column; /* Stack items vertically in mobile */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    li {
+        margin: 10px 0; /* Space items out vertically */
+    }
+
+    a {
+        font-size: 16px; /* Font size for nav links on mobile */
+    }
+}
+
+/* Larger screens */
+@media (min-width: 769px) {
+    body {
+        font-size: 16px; /* Default font size for larger screens */
+    }
+
+    .hamburger {
+        display: none; /* Hide hamburger on larger screens */
+    }
+
+    #nav-links {
+        display: flex; /* Show nav links normally */
+    }
 }

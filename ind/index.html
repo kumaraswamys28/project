@@ -8,7 +8,10 @@
 </head>
 <body>
     <nav>
-        <ul>
+        <div class="hamburger" id="hamburger">
+            &#9776; <!-- This is the hamburger icon -->
+        </div>
+        <ul id="nav-links">
             <li><a href="#div1">Data Types</a></li>
             <li><a href="#div2">Control Structures</a></li>
             <li><a href="#div3">Functions</a></li>
@@ -263,4 +266,20 @@ console.log(PI); // Output: 3.14
         <p>&copy; 2024 Kumaraswamy S. All rights reserved.</p>
     </footer>
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    // Check if elements are correctly selected
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", function() {
+            navLinks.classList.toggle("active");
+        });
+    } else {
+        console.error("Element not found: ", { hamburger, navLinks });
+    }
+});
+
+</script>
 </html>
