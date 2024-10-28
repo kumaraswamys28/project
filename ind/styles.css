@@ -191,7 +191,8 @@ a {
     }
 
     .hamburger {
-        font-size: 20px; /* Slightly smaller hamburger icon */
+        font-size: 20px;
+float:right;/* Slightly smaller hamburger icon */
     }
 
     ul {
