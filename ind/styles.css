@@ -180,7 +180,7 @@ a {
         background-color: #444;
         position: absolute;
         top: 50px; /* Adjust as needed */
-        right: 0;
+        left: 0;
         width: 200px; /* Adjust width as needed */
     }
 
@@ -193,14 +193,8 @@ a {
         font-size: 14px; /* Smaller font size for mobile */
     }
 
-<<<<<<< HEAD
     .hamburger,#homespan {
         font-size: 20px; /* Slightly smaller hamburger icon */
-=======
-    .hamburger {
-        font-size: 20px;
-float:right;/* Slightly smaller hamburger icon */
->>>>>>> 85344fc5b9e66666e7af6f34ab63cc66a6c754a7
     }
 
     ul {
