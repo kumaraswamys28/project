@@ -22,7 +22,7 @@ nav {
     justify-content: space-between;
 }
 
-.hamburger {
+.hamburger,#homespan {
     display: none;
     font-size: 30px;
     cursor: pointer;
@@ -95,7 +95,7 @@ footer {
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
-    .hamburger {
+    .hamburger,#homespan {
         display: block; /* Show hamburger menu */
     }
 
@@ -130,6 +130,9 @@ footer {
     }
 }
 
+h3{
+    margin-top: 15px;
+}
 
 
 
@@ -163,7 +166,7 @@ a {
 }
 
 /* Hamburger icon styling */
-.hamburger {
+.hamburger,#homespan {
     cursor: pointer;
     font-size: 24px; /* Base size for larger screens */
     color: white;
@@ -190,7 +193,7 @@ a {
         font-size: 14px; /* Smaller font size for mobile */
     }
 
-    .hamburger {
+    .hamburger,#homespan {
         font-size: 20px; /* Slightly smaller hamburger icon */
     }
 
@@ -214,7 +217,7 @@ a {
         font-size: 16px; /* Default font size for larger screens */
     }
 
-    .hamburger {
+    .hamburger,#homespan {
         display: none; /* Hide hamburger on larger screens */
     }
 
