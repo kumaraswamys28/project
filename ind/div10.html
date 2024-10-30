@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div10" class="concept">
+        <h2>Data Structures</h2>
+        <h3>1. Arrays</h3>
+        <p>An array is a collection of elements ordered by an index and is commonly used for storing lists of values. Arrays have various built-in methods that make them versatile for data manipulation.</p>
+        <pre><code>
+    let fruits = ["apple", "banana", "cherry"];
+    console.log(fruits[1]); // Output: "banana"
+    
+    // Adding and removing elements
+    fruits.push("orange"); // Adds "orange" to the end
+    fruits.pop();          // Removes the last element ("orange")
+    console.log(fruits);    // Output: ["apple", "banana", "cherry"]
+        </code></pre>
+        <p><strong>Use Case:</strong> Arrays are perfect for maintaining ordered lists and support a variety of operations like filtering, mapping, and reducing.</p>
+    
+        <h3>2. Objects</h3>
+        <p>An object is a collection of key-value pairs. Keys are strings or symbols, while values can be any data type, including functions.</p>
+        <pre><code>
+    let person = {
+      name: "Alice",
+      age: 25,
+      occupation: "Developer"
+    };
+    
+    console.log(person.name);  // Output: "Alice"
+    console.log(person["age"]); // Output: 25
+        </code></pre>
+        <p><strong>Use Case:</strong> Objects are ideal for storing data that has a clear label, where each item can be accessed by a key. Objects are also mutable and can be expanded with new properties.</p>
+    
+        <h3>3. Sets</h3>
+        <p>A Set is a collection of unique values, meaning duplicates are automatically ignored. Sets are useful when you want to avoid duplicate entries.</p>
+        <pre><code>
+    let uniqueNumbers = new Set([1, 2, 3, 3, 4]);
+    uniqueNumbers.add(5);
+    console.log(uniqueNumbers); // Output: Set { 1, 2, 3, 4, 5 }
+    
+    uniqueNumbers.delete(1);
+    console.log(uniqueNumbers.has(1)); // Output: false
+        </code></pre>
+        <p><strong>Use Case:</strong> Sets are useful for managing unique values, such as tracking a list of visited URLs or filtering out duplicate items.</p>
+    
+        <h3>4. Maps</h3>
+        <p>Maps store key-value pairs like objects but have greater flexibility because keys can be any data type (objects, arrays, functions, etc.).</p>
+        <pre><code>
+    let userRoles = new Map();
+    userRoles.set("Alice", "Admin");
+    userRoles.set("Bob", "User");
+    
+    console.log(userRoles.get("Alice")); // Output: "Admin"
+    console.log(userRoles.has("Bob"));   // Output: true
+        </code></pre>
+        <p><strong>Use Case:</strong> Maps are excellent when you need a dictionary-like data structure with flexible key types. They also preserve the order of items as they were added, which is not guaranteed in standard objects.</p>
+    
+        <h3>5. WeakSets</h3>
+        <p>A WeakSet is similar to a Set, but it can only contain objects as its members, not primitive values. Additionally, objects in a WeakSet are held “weakly,” meaning they can be garbage-collected if there are no other references to them.</p>
+        <pre><code>
+    let person1 = { name: "Alice" };
+    let person2 = { name: "Bob" };
+    
+    let userGroup = new WeakSet([person1, person2]);
+    console.log(userGroup.has(person1)); // Output: true
+    
+    person1 = null; // Now the object { name: "Alice" } can be garbage-collected
+        </code></pre>
+        <p><strong>Use Case:</strong> WeakSets are useful when you want to manage a list of objects without preventing them from being garbage-collected, like keeping track of which DOM nodes have been processed.</p>
+    
+        <h3>6. WeakMaps</h3>
+        <p>A WeakMap is similar to a Map but only allows objects as keys (no primitive data types). The object references are also held weakly, allowing them to be garbage-collected.</p>
+        <pre><code>
+    let user = { name: "Alice" };
+    let weakMap = new WeakMap();
+    weakMap.set(user, "Admin");
+    
+    console.log(weakMap.get(user)); // Output: "Admin"
+    user = null;                    // The entry is eligible for garbage collection
+        </code></pre>
+        <p><strong>Use Case:</strong> WeakMaps are commonly used when you want to associate metadata with objects without creating a memory leak, as the data will be garbage-collected when the object is no longer accessible.</p>
+    
+        <h3>Summary of Use Cases:</h3>
+        <ul>
+            <li><strong>Arrays and Objects:</strong> for general-purpose collections.</li>
+            <li><strong>Sets and Maps:</strong> for handling unique values and key-value pairs.</li>
+            <li><strong>WeakSets and WeakMaps:</strong> for managing collections of objects without memory leaks.</li>
+        </ul>
+    </div>
+</body>
+</html>

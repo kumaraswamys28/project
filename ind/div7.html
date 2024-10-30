@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div7" class="concept">
+        <h2>DOM Manipulation</h2>
+        <p>The Document Object Model (DOM) allows interaction with HTML elements using JavaScript:</p>
+        <ul>
+            <li><strong>Selecting Elements:</strong> Use <code>querySelector()</code>, <code>getElementById()</code>, or <code>getElementsByClassName()</code> to access elements.</li>
+            <li><strong>Changing Content:</strong> Use <code>textContent</code> or <code>innerHTML</code> to update content.</li>
+            <li><strong>Changing Style:</strong> Access the <code>style</code> property to modify CSS styles.</li>
+            <li><strong>Event Listeners:</strong> Use <code>addEventListener()</code> to add events like click, input, or submit.</li>
+        </ul>
+        <p>Examples:</p>
+        <pre><code>
+let button = document.querySelector("#myButton");
+button.addEventListener("click", () => {
+    let message = document.getElementById("message");
+    message.textContent = "Button clicked!";
+    message.style.color = "blue";
+});
+        </code></pre>
+    </div>
+</body>
+</html>

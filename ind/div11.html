@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div11" class="concept">
+        <h2>Advanced JavaScript Concepts</h2>
+    
+        <h3>1. Closures</h3>
+        <p>A closure is a function that remembers its outer variables, even if it's executed outside its lexical scope. Closures are commonly used for data privacy and maintaining state in JavaScript.</p>
+        <pre><code>
+    function makeCounter() {
+      let count = 0; // This variable is closed over by the inner function
+    
+      return function() {
+        count++;
+        return count;
+      };
+    }
+    
+    const counter1 = makeCounter();
+    console.log(counter1()); // Output: 1
+    console.log(counter1()); // Output: 2
+    
+    const counter2 = makeCounter();
+    console.log(counter2()); // Output: 1 (new closure)
+        </code></pre>
+        <p><strong>Explanation:</strong> Here, <code>count</code> is accessible only within the inner function returned by <code>makeCounter</code>. Each time <code>makeCounter</code> is called, a new closure is created, which maintains its own separate <code>count</code>.</p>
+    
+        <h3>2. Hoisting</h3>
+        <p>In JavaScript, declarations (variables and functions) are "hoisted" to the top of their scope before the code executes. This means you can use functions and variables before they are declared, but only the declarations are hoisted, not the initializations.</p>
+        <pre><code>
+    console.log(name); // Output: undefined (declaration hoisted, but not initialization)
+    var name = "Alice";
+    
+    console.log(greet()); // Output: "Hello!"
+    function greet() {
+      return "Hello!";
+    }
+        </code></pre>
+        <p><strong>Explanation:</strong> Variable <code>name</code> is hoisted, but only its declaration, not its value, so it outputs <code>undefined</code>. The function <code>greet</code> is fully hoisted, so it can be called before its declaration.</p>
+    
+        <h3>3. Prototypes and Inheritance</h3>
+        <p>In JavaScript, every object has a prototype, an object it inherits properties from. JavaScript inheritance is prototype-based, allowing one object to "inherit" properties from another.</p>
+        <pre><code>
+    function Animal(name) {
+      this.name = name;
+    }
+    
+    Animal.prototype.speak = function() {
+      console.log(this.name + " makes a noise.");
+    };
+    
+    const dog = new Animal("Dog");
+    dog.speak(); // Output: "Dog makes a noise."
+        </code></pre>
+        <p><strong>Explanation:</strong> <code>speak</code> is defined on <code>Animal</code>'s prototype, making it available to all <code>Animal</code> instances. <code>dog</code> inherits this method from <code>Animal</code>'s prototype.</p>
+    
+        <h3>4. The <code>this</code> Keyword</h3>
+        <p>The <code>this</code> keyword refers to the object that is executing the current function. Its value depends on the context in which it is called (runtime binding).</p>
+        <pre><code>
+    const person = {
+      name: "Alice",
+      greet() {
+        console.log("Hello, " + this.name);
+      }
+    };
+    
+    person.greet(); // Output: "Hello, Alice"
+    
+    // Global context
+    function sayHello() {
+      console.log("Hello, " + this.name);
+    }
+    
+    sayHello(); // Output: "Hello, undefined" in strict mode or "Hello, globalName" in the browser
+        </code></pre>
+        <p><strong>Explanation:</strong> In <code>person.greet()</code>, <code>this</code> refers to the <code>person</code> object. In the global context, <code>this</code> typically refers to the global object (<code>window</code> in browsers).</p>
+    
+        <h3>5. Scope (Global, Local, Block)</h3>
+        <p>Scope defines the accessibility of variables and functions. JavaScript has three main types of scope:</p>
+        <ul>
+            <li><strong>Global Scope:</strong> Accessible throughout the program.</li>
+            <li><strong>Local Scope:</strong> Created within functions.</li>
+            <li><strong>Block Scope:</strong> Created within curly braces <code>{}</code>, for example, within <code>if</code> or <code>for</code> statements (ES6 <code>let</code> and <code>const</code> are block-scoped).</li>
+        </ul>
+        <pre><code>
+    let globalVar = "I am global";
+    
+    function localScopeExample() {
+      let localVar = "I am local";
+      console.log(globalVar); // Output: "I am global"
+      console.log(localVar);  // Output: "I am local"
+    }
+    
+    localScopeExample();
+    // console.log(localVar); // Error: localVar is not defined
+    
+    if (true) {
+      let blockScoped = "I am block-scoped";
+      console.log(blockScoped); // Output: "I am block-scoped"
+    }
+    
+    // console.log(blockScoped); // Error: blockScoped is not defined
+        </code></pre>
+        <p><strong>Explanation:</strong></p>
+        <ul>
+            <li><code>globalVar</code> is accessible everywhere.</li>
+            <li><code>localVar</code> is only accessible within <code>localScopeExample</code>.</li>
+            <li><code>blockScoped</code> is accessible only within the block (<code>if</code> statement) in which it is declared.</li>
+        </ul>
+    </div>
+</body>
+</html>

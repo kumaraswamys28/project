@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div3" class="concept">
+        <h2>Functions</h2>
+        <p>Functions are reusable blocks of code in JavaScript, declared in different ways:</p>
+        <ul>
+            <li><strong>Function Declaration:</strong> Can be called before it is defined.</li>
+            <li><strong>Function Expression:</strong> Can only be called after it is defined.</li>
+            <li><strong>Arrow Functions:</strong> A concise syntax introduced in ES6.</li>
+        </ul>
+        <p>Examples:</p>
+        <pre><code>
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+const greetex = function(name) {
+    return `Hello, ${name}!`;
+};
+
+const greetar = (name) => `Hello, ${name}!`;
+        </code></pre>
+        <p>Calling Functions:</p>
+        <pre><code>
+console.log(greet("Zoro")); // Output: Hello, Zoro!
+console.log(greetex("Bob")); // Output: Hello, Bob!
+console.log(greetar("Charlie")); // Output: Hello, Charlie!
+        </code></pre>
+    </div>
+</body>
+</html>

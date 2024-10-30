@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div8" class="concept">
+        <h2>ES6 Features</h2>
+        <p>Modern JavaScript (ES6) introduces several helpful features:</p>
+        <ul>
+            <li><strong>Destructuring:</strong> Unpack values from arrays or properties from objects.</li>
+            <li><strong>Spread and Rest:</strong> Spread allows an array or object to be expanded. Rest collects all remaining elements.</li>
+            <li><strong>Template Literals:</strong> Allows embedded expressions in strings using backticks.</li>
+            <li><strong>Default Parameters:</strong> Provides default values for function parameters.</li>
+        </ul>
+        <p>Examples:</p>
+        <pre><code>
+// Destructuring
+const [a, b] = [1, 2];
+const {name, age} = {name: "Alice", age: 25};
+
+// Spread and Rest
+let arr1 = [1, 2];
+let arr2 = [...arr1, 3, 4];
+function add(...numbers) { return numbers.reduce((a, b) => a + b); }
+
+// Template Literals
+let message = \`Hello, \${name}!\`;
+
+// Default Parameters
+function greet(name = "Guest") {
+    console.log(\`Hello, \${name}!\`);
+}
+        </code></pre>
+    </div>
+</body>
+</html>

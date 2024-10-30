@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div6" class="concept">
+        <h2>Asynchronous JavaScript</h2>
+        <p>JavaScript handles asynchronous code using Callbacks, Promises, and Async/Await:</p>
+        <ul>
+            <li><strong>Callback:</strong> A function passed as an argument to another function, often used in asynchronous operations.</li>
+            <li><strong>Promise:</strong> An object representing the eventual completion or failure of an asynchronous operation.</li>
+            <li><strong>Async/Await:</strong> A syntactical sugar over Promises for easier handling of asynchronous code.</li>
+        </ul>
+        <p>Examples:</p>
+        <pre><code>
+// Callback
+function fetchData(callback) {
+    setTimeout(() => callback("Data received"), 1000);
+}
+fetchData(console.log);
+
+// Promise
+let promise = new Promise((resolve, reject) => {
+    let success = true;
+    success ? resolve("Data received") : reject("Error");
+});
+promise.then(console.log).catch(console.error);
+
+// Async/Await
+async function fetchAsyncData() {
+    try {
+        let result = await promise;
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+fetchAsyncData();
+        </code></pre>
+    </div>
+</body>
+</html>

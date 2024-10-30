@@ -1,0 +1,105 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #c9d6ff, #e2ebf0);
+    margin: 0;
+}
+
+/* Weather Container Styling */
+.weather-container {
+    background: #ffffff;
+    width: 90%;
+    /* max-width: 500px; */
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+/* Title Styling */
+.weather-container h1 {
+    font-size: 36px;
+    color: #4a90e2;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Input Group Styling */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+button {
+    padding: 12px 18px;
+    font-size: 16px;
+    border: none;
+    background-color: #4a90e2;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #357abd;
+}
+
+/* Weather Display Styling */
+#weatherDisplay {
+    font-size: 18px;
+    display: none;
+    color: #333;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#weatherDisplay h2 {
+    font-size: 35px;
+    color: #4a90e2;
+    margin-bottom: 10px;
+}
+
+#weatherDisplay p {
+    margin: 6px 0;
+    color: #333;
+}
+
+#weatherDisplay img {
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+}
+.cont{
+    display: flex;
+   justify-content:space-around;
+   padding: 20px;
+   margin: 20px;
+}
