@@ -109,6 +109,12 @@ footer {
         width: 100%; /* Full width */
         z-index: 999; /* Layer above content */
     }
+    .concept {
+        padding: 20px 20px;
+        min-height: 100vh;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #ddd;
+    }
 
     nav ul.active {
         display: flex; /* Show links when active */
@@ -126,43 +132,18 @@ footer {
     }
 
     header p {
-        font-size: 0.9em; /* Further adjust paragraph size */
+       display: none; /* Further adjust paragraph size */
     }
+}
+.concept {
+    padding: 20px 20px;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
 }
 
 h3{
     margin-top: 15px;
-}
-
-
-
-
-
-
-
-/* Base styles for navigation */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #333;
-}
-
-ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    margin: 0 15px;
-}
-
-a {
-    color: white;
-    text-decoration: none;
 }
 
 /* Hamburger icon styling */

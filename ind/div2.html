@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Concepts</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav>
+        <span id="homespan" style="margin-left: 25px;"><a href="https://manojkumbi.github.io/project/">Home</a></span>
+        <div class="hamburger" id="hamburger">
+            &#9776; <!-- This is the hamburger icon -->
+        </div>
+        <ul id="nav-links">
+            <li><a href="./index.html">Data  Types</a></li>
+            <li><a href="./div2.html">Control Structures</a></li>
+            <li><a href="./div3.html">Functions</a></li>
+            <li><a href="./div4.html">Objects</a></li>
+            <li><a href="./div5.html">Arrays</a></li>
+            <li><a href="./div6.html">Asynchronous JavaScript</a></li>
+            <li><a href="./div7.html">DOM Manipulation</a></li>
+            <li><a href="./div8.html">ES6 Features</a></li>
+            <li><a href="./div9.html">Modules</a></li>
+            <li><a href="./div10.html">Data Structures
+            </a></li>
+            <li><a href="./div11.html">Advanced JavaScript Concepts</a></li>
+            <li><a href="./div12.html">JavaScript’s functionality</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Understanding JavaScript Concepts</h1>
+        <p>A beginner's guide to essential JavaScript concepts.</p>
+    </header>
     <div id="div2" class="concept">
         <h2>Control Structures</h2>
         <p>Control structures manage the flow of your program, including:</p>
@@ -43,5 +70,24 @@ switch (day) {
 }
         </code></pre>
     </div>
+    <footer>
+      <p>&copy; 2024 Kumaraswamy S. All rights reserved.</p>
+  </footer>
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+
+  // Check if elements are correctly selected
+  if (hamburger && navLinks) {
+      hamburger.addEventListener("click", function() {
+          navLinks.classList.toggle("active");
+      });
+  } else {
+      console.error("Element not found: ", { hamburger, navLinks });
+  }
+});
+
+</script>
 </html>
