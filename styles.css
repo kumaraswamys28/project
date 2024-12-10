@@ -5,15 +5,19 @@
 }
 
 body {
-    
     background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Adds a light blue gradient */
     color: #444;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    min-height: 99vh;
+    min-height: 100vh; /* Ensures the body takes full height of the viewport */
     width: 100vw;
+    font-family: 'Arial', sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
 }
 
 h1, h2 {
@@ -23,7 +27,6 @@ h1, h2 {
 h1 {
     color: #000000;
     margin: 20px 0;
-    
 }
 
 h2 {
@@ -37,7 +40,7 @@ h2 {
     width: 100%;
     padding: 20px;
     margin: 0 auto;
-    height: 750px;
+    flex: 1; /* Ensures the container takes up the available space */
 }
 
 ul {
@@ -76,7 +79,6 @@ a:hover {
     background-color: #4a90e2;
 }
 
-
 @media (max-width: 600px) {
     h1 {
         font-size: 1.8em;
@@ -86,28 +88,16 @@ a:hover {
     }
 }
 
-body {
-    margin: auto;
-    
-    font-family: 'Arial', sans-serif;
-    overflow: auto;
-    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
-    animation: gradient 15s ease infinite;
-    background-size: 400% 400%;
-    background-attachment: fixed;
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0); 
+    color: #000000;
+   
+    margin-top: auto; 
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
-}
 
 .wave {
     background: rgb(255 255 255 / 25%);
@@ -157,3 +147,14 @@ body {
     }
 }
 
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}

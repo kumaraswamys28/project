@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intelligent Bookmarking and Content Management Platform</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero-section">
+      <nav class="navbar">
+        <div class="logo" onclick="feat()">MarkThat</div>
+        <ul class="nav-links">
+          <li onclick="feature()">Features</li>
+          <li onclick="Benefits()">Benefits</li>
+          <!-- <li onclick="Tech()">Tech Stack</li> -->
+        </ul>
+      </nav>
+      <div class="hero-content">
+        <h1>Revolutionize Your Content Management</h1>
+        <p>
+          Effortlessly organize, discover, and revisit your most valuable
+          bookmarks, notes, and images with our privacy-first, AI-powered
+          platform.
+        </p>
+        <a href="/index.html" class="btn">Learn More</a>
+      </div>
+    </header>
+
+    <main>
+     
+    </main>
+
+    <footer id="contact" class="footer">
+      <p>
+        © 2024 MarkThat. All rights reserved. |
+        <a href="mailto:manojkumbi2803@gmail.com">Contact Us</a>
+      </p>
+    </footer>
+  </body>
+  <script>
+    let main = document.querySelector("main");
+    let content = ` <section id="problem-statement" class="section">
+        <h2>Identifying the Problem</h2>
+        <p>
+          As content accumulates, managing and retrieving valuable information
+          becomes increasingly challenging. Key issues include:
+        </p>
+        <ul>
+          <li>
+            <strong>Disorganized Content:</strong> Items lack proper
+            categorization, making them difficult to locate when needed.
+          </li>
+          <li>
+            <strong>Time-Consuming Search:</strong> Users often spend too much
+            time searching for key content.
+          </li>
+          <li>
+            <strong>Limited Functionality:</strong> Existing platforms fail to
+            support advanced features like tagging or image recognition.
+          </li>
+          <li>
+            <strong>Privacy Concerns:</strong> Many platforms compromise user
+            privacy by selling data to third parties.
+          </li>
+        </ul>
+      </section>`;
+
+      main.innerHTML = content;
+
+    const feature = () => {
+      content = `<section id="features" class="section">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Unlimited Content Cards</h3>
+          <p>Store an unlimited variety of content—links, images, text snippets—and organize them in an intuitive, visually appealing layout.</p>
+        </div>
+        <div class="feature-card">
+          <h3>AI Tagging & Categorization</h3>
+          <p>AI-driven automatic tagging and categorization ensure seamless organization, allowing you to focus on what matters.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Image Recognition (OCR)</h3>
+          <p>Utilize Optical Character Recognition (OCR) to extract searchable text from images, making image-based content fully accessible.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Smart Spaces</h3>
+          <p>AI intelligently groups related content into organized spaces, reducing manual effort and boosting productivity.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Remember This Mode</h3>
+          <p>Revisit forgotten or overlooked content with AI-powered recommendations, ensuring you never miss out on valuable information.</p>
+        </div>
+      </div>
+    </section>`;
+
+      main.innerHTML = content;
+    };
+    const Benefits = () => {
+      content = `<section id="benefits" class="section">
+      <h2>Why Choose MarkThat?</h2>
+      <p>Our platform offers unparalleled advantages for better content management and enhanced productivity:</p>
+      <ul>
+        <li><strong>Effortless Organization:</strong> Let AI handle the categorization so you can spend more time on what matters most.</li>
+        <li><strong>Increased Productivity:</strong> Find your content faster and focus on using it, not searching for it.</li>
+        <li><strong>Cross-Platform Accessibility:</strong> Access your saved content from any device, at any time, with ease.</li>
+        <li><strong>Privacy-First Approach:</strong> Your data is encrypted, and we never sell or share your information.</li>
+        <li><strong>Intelligent Discovery:</strong> Rediscover valuable content effortlessly with features like Remember This Mode, ensuring you're always engaged.</li>
+      </ul>
+    </section>`;
+      main.innerHTML = content;
+    };
+    const Tech = () => {
+      content = `<section id="tech-stack" class="section">
+      <h2>Technology Stack</h2>
+      <p>Our platform is powered by cutting-edge technologies for an efficient, scalable experience:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Technology</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Frontend</td>
+            <td>React (Vite), Tailwind CSS</td>
+          </tr>
+          <tr>
+            <td>Backend</td>
+            <td>Node.js (Express.js)</td>
+          </tr>
+          <tr>
+            <td>AI/ML Integration</td>
+            <td>OpenAI API, Hugging Face, Google Vision</td>
+          </tr>
+          <tr>
+            <td>Database</td>
+            <td>MongoDB, PostgreSQL</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>AWS S3, Cloudinary</td>
+          </tr>
+          <tr>
+            <td>Deployment</td>
+            <td>Vercel, AWS, Heroku</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>`;
+      main.innerHTML = content;
+    };
+  </script>
+</html>
