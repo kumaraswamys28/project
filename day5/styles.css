@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+    overflow: hidden;
+}
+main{
+    
+    background-color: aquamarine;
+    height: 100vh;
+    width: 100vw;
+    border-radius: 5px;
+display: flex;
+padding: 5px;
+gap: 5px;
+}
+.side-tab{
+    border-radius: 5px;
+width: 20%;
+height: 100vh;
+background-color: chocolate;
+}
+.main-tab{
+    border-radius: 5px;
+
+    width: 80%;
+    height: 100vh;
+    background-color: beige;
+}
