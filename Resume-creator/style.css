@@ -48,8 +48,69 @@ main {
         page-break-after: always;
     }
 }
+
 inputlabel[for]:after {
     content: " *";
     color: red;
     font-weight: bold;
+}
+
+.nav{
+    border-bottom: 20px solid black;
+}
+
+.tab-pane {
+    background-color: #CAE5FF;
+    padding: 20px;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.colombia-blue {
+    background-color: #CAE5FF;
+    color: rgb(0, 0, 0);
+}
+
+.cryola {
+    background-color: #F45B69;
+    color: rgb(0, 0, 0);
+}
+
+.ultra-violet {
+    background-color: #4B4E6D;
+    color: rgb(0, 0, 0);
+}
+
+.ultra-violet-blue {
+    background-color: #4E5283;
+    color: rgb(0, 0, 0);
+}
+
+.jordy-blue {
+    background-color: #89BBFE;
+    color: rgb(0, 0, 0);
+}
+
+.jordy-blue-text {
+    color: #89BBFE;
+
+}
+.colombia-blue-text {
+    color: #CAE5FF;
+
+}
+
+.cryola-text {
+    color: #F45B69;
+
+}
+
+.ultra-violet-text {
+    color: #4B4E6D;
+
+}
+
+.ultra-violet-blue-text {
+    color: #4E5283;
+
 }
