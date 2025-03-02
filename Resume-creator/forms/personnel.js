@@ -1,4 +1,5 @@
 const personnel=``
+let user={}
 
 document.addEventListener("DOMContentLoaded", function () {
  
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (isValid) {
-            const user = {
+            user = {
                 firstName: firstNamei.value.trim(),
                 lastName: lastNamei.value.trim(),
                 email: emaili.value.trim(),
@@ -61,8 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 careerObjective: careerObjectivei.value.trim()
             };
 
-            console.log("User Data:", user);
             alert("Form submitted successfully!");
         }
     });
 });
+export  {personnel,user}

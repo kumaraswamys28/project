@@ -81,3 +81,48 @@ ul li strong {
     margin: 0;
     padding: 0 0;
 }
+ .project strong{
+    font-size: 12px;
+ }
+
+.edu-item{
+    margin-top: 8px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.top-row, .bottom-row, .location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -5px;
+}
+
+
+.year {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.bottom-row i {
+    flex-grow: 1;
+}
+
+.bottom-row a {
+    text-align: right;
+    white-space: nowrap;
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bottom-row a:hover {
+    text-decoration: underline;
+}
+
+
+
