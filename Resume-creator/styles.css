@@ -1,0 +1,83 @@
+body {
+    font-family: "Cardo", serif;
+    line-height: 0;
+ text-align: left;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#printarea header{
+    margin-bottom:0;
+}
+header h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+}
+
+header p {
+    font-size: small;
+    text-align: center;
+    margin: -1px 0 ;
+}
+
+header p a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header p a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+section {
+    margin-bottom: 2px;
+    font-size: small;
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
+}
+
+section p{
+    margin-top: -1px;
+    padding: 0;
+   
+    
+ 
+    line-height: 15px;
+
+}
+
+h6 {
+    color: #333;
+    width: 100%;
+    font-size: small important!;
+    border-bottom: 1px solid #333;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+ul {
+    list-style: disc;
+    font-size: small;
+    padding: 0;
+    margin-top: -2px;
+    text-align: left;
+}
+
+ul li {
+    margin-bottom: 0;
+}
+
+ul li strong {
+    color: #333;
+}
+
+.career-objective p, 
+.additional-iinfo ul li {
+    margin: 0;
+    padding: 0 0;
+}
