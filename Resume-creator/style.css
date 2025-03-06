@@ -9,6 +9,9 @@ main {
     margin: 0 auto;
 }
 
+.nav-item{
+    font-size: large;
+}
 /* full-page A4 size */
 .a4-page {
     width: 210mm;
