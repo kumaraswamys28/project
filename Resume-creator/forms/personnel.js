@@ -61,9 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 website: websitei.value.trim(),
                 careerObjective: careerObjectivei.value.trim()
             };
-
+            localStorage.setItem("personnel", JSON.stringify(user));
+            
             alert("Form submitted successfully!");
         }
     });
 });
-export  {personnel,user}
+

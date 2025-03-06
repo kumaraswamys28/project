@@ -1,0 +1,76 @@
+{
+    "name": "KUMARASWAMY S",
+    "contact": {
+      "phone": "+91-6362937012",
+      "email": "kumarswamy2803@gmail.com",
+      "linkedin": "LinkedIn",
+      "github": "Github"
+    },
+    "career_objective": "Motivated Software Tester with a solid foundation in Java, SQL, and JavaScript, coupled with experience in web development. Eager to apply testing skills in a collaborative environment to ensure product quality and contribute to innovative projects while expanding my technical expertise in testing.",
+    "skills": {
+      "programming_languages": ["JAVA", "PYTHON", "JavaScript", "C++", "Bash"],
+      "web_technologies": ["HTML-CSS", "Node.js", "Express.js", "React", "Tailwind CSS", "RESTful API"],
+      "database_systems": ["MySQL", "MongoDB"],
+      "data_science_machine_learning": ["Pandas", "NumPy", "Matplotlib/Seaborn", "Scikit-learn"],
+      "devops_version_control": ["Git", "GitHub"],
+      "specialized_areas": ["Web Development", "Data Science"],
+      "mathematical_statistical_tools": ["Excel"],
+      "other_tools_technologies": ["Chat-GPT", "AI Tools", "Copilot", "Postman", "Visual Studio Code", "Jupyter Notebook", "Slack", "LaTeX"],
+      "research_skills": ["Data Collection (Web Scraping)", "Data Visualization", "Basic Statistical Analysis"]
+    },
+    "projects": [
+      {
+        "name": "JOURNEY: Blogging Web App",
+        "tools": ["Node.js", "React.js", "Express.js", "MongoDB", "Tailwind CSS"],
+        "duration": "June 2024 - Aug 2024",
+        "features": [
+          "Implemented a modern blog editor using Editor JS for an enhanced user experience.",
+          "Created dynamic blog pages with customizable URLs and a search functionality for users and blogs.",
+          "Increased page load speed by 30% using Vite.",
+          "Ensured mobile responsiveness and modern design.",
+          "Enhanced the user experience with dynamic blog pages, making the content easily searchable and accessible.",
+          "Implemented state management using React Context API for efficient data handling across components.",
+          "Utilized Vite for fast development and efficient build processes in the front-end."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Government First Grade College Vijayanagar, Bangalore",
+        "degree": "Bachelor of Computer Applications (B.C.A.)",
+        "cgpa": 8.6,
+        "location": "Bangalore, Karnataka",
+        "year": "2021 – 2024"
+      },
+      {
+        "institution": "Vidyadhama Pre-University, Bangalore",
+        "degree": "PCMCs",
+        "score": "85%",
+        "location": "Bangalore, Karnataka",
+        "year": "2019 – 2021"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Networking Fundamentals",
+        "issuer": "Jet-king Academy",
+        "date": "November 2023"
+      },
+      {
+        "name": "Full Stack Web Development Internship",
+        "date": "April 2024"
+      },
+      {
+        "name": "Python Internship",
+        "date": "March 2024"
+      }
+    ],
+    "additional_information": {
+      "languages": {
+        "English": "Intermediate",
+        "Kannada": "Native",
+        "Hindi": "Fluent"
+      },
+      "interests": ["AI tools", "Crypto Trading", "Sketching", "UI/UX"]
+    }
+  }

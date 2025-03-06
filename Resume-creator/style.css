@@ -9,9 +9,16 @@ main {
     margin: 0 auto;
 }
 
-.nav-item{
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.nav-item {
     font-size: large;
 }
+
 /* full-page A4 size */
 .a4-page {
     width: 210mm;
@@ -22,7 +29,7 @@ main {
     margin: auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     display: flex;
-    
+
     justify-content: center;
     align-items: left;
     text-align: left;
@@ -51,19 +58,25 @@ main {
         page-break-after: always;
     }
 }
-
+/* .printable{
+    overflow-x: hidden;
+} */
 inputlabel[for]:after {
     content: " *";
     color: red;
     font-weight: bold;
 }
 
-.nav{
+.nav {
     border-bottom: 20px solid black;
 }
-
+ .btn-primary{
+    background-color: #0078FF;
+    border-color: #007BFF;
+    color: white;
+ }
 .tab-pane {
-    background-color: #CAE5FF;
+    background-color: #F8F1FF;
     padding: 20px;
     border-radius: 10px;
     color: rgb(0, 0, 0);
@@ -98,6 +111,7 @@ inputlabel[for]:after {
     color: #89BBFE;
 
 }
+
 .colombia-blue-text {
     color: #CAE5FF;
 
@@ -132,7 +146,8 @@ inputlabel[for]:after {
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-    overflow: hidden; /* Prevents content overflow */
+    overflow: hidden;
+    /* Prevents content overflow */
 }
 
 /* Ensure the content inside stays within the A4 size */
@@ -164,4 +179,57 @@ inputlabel[for]:after {
         box-shadow: none;
         page-break-after: always;
     }
+}
+
+#isntruct {
+    margin: auto;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+.CharcoalGray {
+    background-color: #1E1E2E;
+}
+
+.SoftGray {
+    background-color: #F4F4F7;
+}
+
+.ElectricBlue {
+    background-color: #007BFF;
+}
+
+.deep-space-blue {
+    background-color: #130F40;
+}
+
+.neon-mist {
+    background-color: #F8F1FF;
+}
+
+.hyper-electric-blue {
+    background-color: #0078FF;
+}
+
+.fiery-crimson {
+    background-color: #FF1744;
+}
+
+
+
+.emerald-green {
+    background-color: #00C853;
+}
+
+.radiant-purple {
+    background-color: #9C27B0;
+}
+
+.text-pure-white {
+    color: #FFFFFF;
+}
+
+.text-midnight-black {
+    color: #0D0D0D;
 }

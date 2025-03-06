@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function addValidation(form) {
         const institutionInput = form.querySelector(".institution");
         const qualificationInput = form.querySelector(".qualification");
+        const CGPAinput = form.querySelector(".CGPA");
         const stateSelect = form.querySelector(".state-select");
         const districtSelect = form.querySelector(".district-select");
         const yearInput = form.querySelector(".year");
@@ -34,6 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const educationFields = [
             { input: institutionInput, errorMsg: "Institution name is required and should not contain numbers.", regex: /^[A-Za-z\s]+$/ },
             { input: qualificationInput, errorMsg: "Qualification is required and should not contain numbers.", regex: /^[A-Za-z\s]+$/ },
+            { input: CGPAinput, errorMsg: "Cgpa is required and should contain numbers.", regex: /^(10(\.00?)?|[0-9](\.\d{1,2})?)$/
+        },
             { input: stateSelect, errorMsg: "Please select a State.", regex: /^[A-Za-z\s]+$/ },
             { input: districtSelect, errorMsg: "Please select a district.", regex: /.+/ },
             { input: yearInput, errorMsg: `Enter a valid year between ${currentYear - 50} and ${currentYear + 1}.`, regex: yearRegex }
@@ -72,17 +75,22 @@ document.addEventListener("DOMContentLoaded", function () {
         newEducationForm.innerHTML = `
         <hr>
         <div class="mb-3">
-            <label class="form-label">Institution Name</label>
+            <label class="form-label">Institution Name<span class="text-danger">*</span></label>
             <input type="text" class="form-control institution" required>
             <small class="text-danger error-msg"></small>
         </div>
         <div class="mb-3">
-            <label class="form-label">Degree / Qualification</label>
+            <label class="form-label">Degree / Qualification<span class="text-danger">*</span></label>
             <input type="text" class="form-control qualification" required>
             <small class="text-danger error-msg"></small>
         </div>
         <div class="mb-3">
-            <label class="form-label">State</label>
+            <label class="form-label">CGPA:<span class="text-danger">*</span></label>
+            <input type="text" class="form-control CGPA" required>
+            <small class="text-danger error-msg"></small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">State<span class="text-danger">*</span></label>
             <select class="form-control state-select" required>
                 <option value="">Select State</option>
                 ${Object.keys(stateDistrictData).map(state => `<option value="${state}">${state}</option>`).join('')}
@@ -90,14 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
             <small class="text-danger error-msg"></small>
         </div>
         <div class="mb-3">
-            <label class="form-label">District</label>
+            <label class="form-label">District<span class="text-danger">*</span></label>
             <select class="form-control district-select" required>
                 <option value="">Select District</option>
             </select>
             <small class="text-danger error-msg"></small>
         </div>
         <div class="mb-3">
-            <label class="form-label">Year of Passing</label>
+            <label class="form-label">Year of Passing<span class="text-danger">*</span></label>
             <input type="text" class="form-control year" required pattern="\\d{4}">
             <small class="text-danger error-msg"></small>
         </div>
@@ -120,10 +128,12 @@ document.addEventListener("DOMContentLoaded", function () {
         let educationForms = document.querySelectorAll(".education-form");
         let educationData = [];
         let allValid = true;
+        let isValid = false;
 
         educationForms.forEach(function (form) {
             let qualification = form.querySelector(".qualification");
             let institution = form.querySelector(".institution");
+            let cgpa = form.querySelector(".CGPA");
             let state = form.querySelector(".state-select");
             let district = form.querySelector(".district-select");
             let year = form.querySelector(".year");
@@ -134,6 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
             let validationRules = [
                 { input: institution, errorMsg: "Institution name is required and should not contain numbers.", regex: /^[A-Za-z\s]+$/ },
                 { input: qualification, errorMsg: "Qualification is required and should not contain numbers.", regex: /^[A-Za-z\s]+$/ },
+                { input: cgpa, errorMsg: "Cgpa is required and should contain numbers.", regex: /^(10(\.00?)?|[0-9](\.\d{1,2})?)$/
+        },
                 { input: state, errorMsg: "Please select a State.", regex: /^[A-Za-z\s]+$/ },
                 { input: district, errorMsg: "Please select a district.", regex: /.+/ },
                 { input: year, errorMsg: `Enter a valid year between ${currentYear - 50} and ${currentYear + 1}.`, regex: yearRegex }
@@ -149,9 +161,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!formValid) {
                 allValid = false;
             } else {
+                isValid=true;
                 educationData.push({
                     institution: institution.value,
                     qualification: qualification.value,
+                    cgpa: cgpa.value,
                     state: state.value,
                     district: district.value,
                     year: year.value
@@ -159,7 +173,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        if (allValid) {
+        if (isValid && allValid) {
+            alert("education details submitted successfully!");
+            localStorage.setItem("education", JSON.stringify(educationData));
             document.getElementById("json").innerHTML = `<pre>${JSON.stringify(educationData, null, 2)}</pre>`;
         }
     });
