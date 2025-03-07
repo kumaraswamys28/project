@@ -17,7 +17,8 @@ document.getElementById("test").innerHTML =project==[] && education==[] && certi
     
 </div>
 ` : `
-    <button onclick="printDiv()">Print A4 Div</button>
+    <button onclick="printDiv()">Print A4 Div</button>
+
                
             `;
 
@@ -107,7 +108,5 @@ let resume=`  <header>
         ).join('')}
     </ul>
 </section>
-        
-               
-            `;
+         `;
 printarea.innerHTML=resume
