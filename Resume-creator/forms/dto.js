@@ -17,7 +17,6 @@ document.getElementById("test").innerHTML =project==[] && education==[] && certi
     
 </div>
 ` : `
-
     <button onclick="printDiv()">Print A4 Div</button>
                
             `;
