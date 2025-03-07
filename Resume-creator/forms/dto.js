@@ -31,7 +31,7 @@ let resume=`  <header>
                     <p>
                     <a href="${personnel.website}" target="_blank">Website</a> |
                         <a href="${personnel.linkedin}" target="_blank">LinkedIn</a> |
-                        <a href="${personnel.gjithub}" target="_blank">GitHub</a>
+                        <a href="${personnel.github}" target="_blank">GitHub</a>
                     </p>
                 </header>
         
@@ -87,7 +87,7 @@ let resume=`  <header>
                                 </div>
                                 <div class="bottom-row">
                                     <i>Tools: ${e.tools.join(', ')}</i>
-                                    <a href="[Project GitHub]">GitHub</a>
+                                    <a href="${e.url}">GitHub</a>
                                 </div>
                             </div>
                             <ul>
