@@ -63,7 +63,7 @@ const url = linkElement.value;
             }
         }
 
-        projects.push({ name, tools, duration, features,url });
+        projects.push({ name, tools, duration, features, url });
     }
     if (isValid) {
         alert(`Project detials added successfully`);
