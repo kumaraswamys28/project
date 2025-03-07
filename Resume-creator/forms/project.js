@@ -42,9 +42,11 @@ document.getElementById("skillsubmit").addEventListener("click", function (event
         const nameElement = document.querySelector(`[name=name${i}]`);
         const toolsElement = document.querySelector(`[name=tools${i}]`);
         const durationElement = document.querySelector(`[name=duration${i}]`);
+const linkElement = document.querySelector(`[name=link${i}]`);
 
 
         const name = nameElement.value;
+const url = linkElement.value;
         const tools = toolsElement.value.split(',').map(tool => tool.trim());
         const duration = durationElement.value;
         if (!name || !tools || !duration) {
@@ -61,7 +63,7 @@ document.getElementById("skillsubmit").addEventListener("click", function (event
             }
         }
 
-        projects.push({ name, tools, duration, features });
+        projects.push({ name, tools, duration, features,url });
     }
     if (isValid) {
         alert(`Project detials added successfully`);
