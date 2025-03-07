@@ -88,6 +88,7 @@ document.getElementById("test").innerHTML =project==[] && education==[] && certi
         </div>
     </div>
 </section>
+<button onclick="printDiv()">Print</button>
 `;
 
 
