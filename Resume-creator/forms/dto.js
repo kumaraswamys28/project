@@ -23,5 +23,5 @@ document.getElementById("test").innerHTML =project==[] && education==[] && certi
 </div>
         
                
-            `;
+            `
 printarea.innerHTML=resume
