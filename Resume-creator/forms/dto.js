@@ -23,9 +23,9 @@ document.getElementById("test").innerHTML =project==[] && education==[] && certi
 </div>
         
                
-            `
+            `;
 
-const printarea=document.getElementById("printArea")
+let printarea=document.getElementById("printArea")
 let resume=`  <header>
                     <h1>${personnel.firstName} ${personnel.lastName}</h1>
                     <p>
