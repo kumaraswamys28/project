@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Master Responsive Design Principles for Mobile First Development</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white border-b-2 sticky top-0 z-10">
+        <div class="flex items-center justify-between px-4 py-2">
+            <div class="flex items-center">
+                <span class="rounded w-12 h-8 p-1 bg-gray-200">logo</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-gray-700">
+                    <i class="fas fa-search text-lg"></i>
+                </button>
+                <div class="bg-white rounded-lg shadow-sm">
+                    <div class="flex justify-end">
+                        <button id="filterButton" class="px-4 py-1 bg-gray-200 rounded-full text-sm flex items-center">
+                            <i class="fas fa-filter mr-1"></i>
+                            Filter
+                        </button>
+                    </div>
+
+                    <!-- Filter Modal (hidden by default) -->
+                    <div id="filterModal" class="hidden mt-4 bg-white rounded-lg shadow-lg p-4 border">
+                        <!-- Content Type Filter -->
+                        <div class="mb-4">
+                            <h3 class="font-bold text-gray-700 mb-2">Content Type</h3>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center p-2 border rounded">
+                                    <input type="checkbox" class="mr-2">
+                                    <span>Videos</span>
+                                </label>
+                                <label class="flex items-center p-2 border rounded">
+                                    <input type="checkbox" class="mr-2">
+                                    <span>Posts</span>
+                                </label>
+                                <label class="flex items-center p-2 border rounded">
+                                    <input type="checkbox" class="mr-2">
+                                    <span>Blogs</span>
+                                </label>
+                                <label class="flex items-center p-2 border rounded">
+                                    <input type="checkbox" class="mr-2">
+                                    <span>Articles</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Location Filter -->
+                        <div class="mb-4">
+                            <h3 class="font-bold text-gray-700 mb-2">Location</h3>
+                            <div class="relative">
+                                <input type="text" placeholder="Search location..."
+                                    class="w-full p-2 border rounded pl-8">
+                                <i
+                                    class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                            <div class="mt-2 p-2 border rounded max-h-24 overflow-y-auto">
+                                <div class="py-1">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="location" class="mr-2">
+                                        <span>New York, USA</span>
+                                    </label>
+                                </div>
+                                <div class="py-1">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="location" class="mr-2">
+                                        <span>London, UK</span>
+                                    </label>
+                                </div>
+                                <div class="py-1">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="location" class="mr-2">
+                                        <span>Tokyo, Japan</span>
+                                    </label>
+                                </div>
+                                <div class="py-1">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="location" class="mr-2">
+                                        <span>Sydney, Australia</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Time Filter -->
+                        <div class="mb-4">
+                            <h3 class="font-bold text-gray-700 mb-2">Upload Date</h3>
+                            <div class="flex flex-col space-y-2">
+                                <label class="flex items-center p-2 border rounded">
+                                    <input type="radio" name="time" class="mr-2">
+                                    <span>Last 2 days</span>
+                                </label>
+                                <label class="flex items-center p-2 border rounded">
+                                    <input type="radio" name="time" class="mr-2">
+                                    <span>Last week</span>
+                                </label>
+                                <label class="flex items-center p-2 border rounded">
+                                    <input type="radio" name="time" class="mr-2">
+                                    <span>Last month</span>
+                                </label>
+                                <label class="flex items-center p-2 border rounded">
+                                    <input type="radio" name="time" class="mr-2">
+                                    <span>Last year</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filter Action Buttons -->
+                        <div class="flex justify-end space-x-2 mt-4">
+                            <button class="px-4 py-2 border rounded text-gray-700">Clear</button>
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded">Apply</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <script>
+                    // Simple toggle for demonstration purposes
+                    const filterButton = document.getElementById('filterButton');
+                    const filterModal = document.getElementById('filterModal');
+
+                    filterButton.addEventListener('click', function () {
+                        if (filterModal.classList.contains('hidden')) {
+                            filterModal.classList.remove('hidden');
+                        } else {
+                            filterModal.classList.add('hidden');
+                        }
+                    });
+                </script>
+
+                <button class="text-gray-700">
+                    <i class="fas fa-paper-plane text-lg"></i>
+                </button>
+
+
+
+            </div>
+        </div>
+
+    </header>
+
+    <main class="container mx-auto p-4 mb-2  bg-white rounded-lg shadow">
+        <!-- Banner Image -->
+        <div class="w-full h-64 overflow-hidden rounded-t-lg">
+            <img id="Banner" src="/api/placeholder/1200/400" alt="Responsive Design Banner" class="w-full object-cover">
+        </div>
+
+        <!-- Article Title -->
+        <h1 class="text-3xl font-bold mt-6 px-4">How to Master Responsive Design Principles for Mobile First Development</h1>
+
+        <!-- Author Info -->
+        <div class="flex items-center p-4 border-b">
+            <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white mr-3">
+                <span>C</span>
+            </div>
+            <div class="flex-1">
+                <div class="font-semibold">CodeWithJames</div>
+                <div class="text-sm text-gray-500">Published 5 days ago</div>
+            </div>
+            <button class="text-gray-700">
+                <i class="fas fa-ellipsis-h"></i>
+            </button>
+        </div>
+
+        <!-- Like and Share Buttons -->
+        <div class="flex items-center px-4 py-3 border-b">
+            <button class="flex items-center mr-4 text-gray-600 hover:text-blue-600">
+                <i class="far fa-thumbs-up mr-1"></i>
+                <span>127K</span>
+            </button>
+            <button class="flex items-center text-gray-600 hover:text-blue-600">
+                <i class="far fa-share-square mr-1"></i>
+                <span>Share</span>
+            </button>
+            <div class="ml-auto text-sm text-gray-500">890K views</div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="px-4 py-6 prose max-w-none">
+            <p class="mb-4">In today's digital landscape, creating websites that work seamlessly across all devices isn't just a nice-to-have—it's essential. With mobile internet usage surpassing desktop, understanding mobile-first development and responsive design principles has become a fundamental skill for web developers.</p>
+            
+            <h2 class="text-2xl font-bold mt-6 mb-4">What is Mobile-First Development?</h2>
+            <p class="mb-4">Mobile-first development is an approach where you design and develop for the smallest screen first, then progressively enhance the experience for larger screens. This strategy forces you to focus on core content and functionality, ensuring a solid foundation before adding complexity.</p>
+            
+            <h2 class="text-2xl font-bold mt-6 mb-4">Core Responsive Design Principles</h2>
+            
+            <h3 class="text-xl font-semibold mt-5 mb-3">1. Fluid Grids</h3>
+            <p class="mb-4">Instead of fixed-width layouts, use relative units like percentages to create flexible grid systems that adapt to the viewport size. This allows content to flow naturally regardless of screen dimensions.</p>
+            <pre class="bg-gray-100 p-3 rounded my-4 overflow-auto">
+/* Example of fluid grid */
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.column {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .column {
+    width: 50%;
+  }
+}
+            </pre>
+            
+            <h3 class="text-xl font-semibold mt-5 mb-3">2. Flexible Images</h3>
+            <p class="mb-4">Use CSS to ensure images scale properly within their containers. The max-width property is particularly useful for preventing images from exceeding their container's width.</p>
+            <pre class="bg-gray-100 p-3 rounded my-4 overflow-auto">
+img {
+  max-width: 100%;
+  height: auto;
+}
+            </pre>
+            
+            <h3 class="text-xl font-semibold mt-5 mb-3">3. Media Queries</h3>
+            <p class="mb-4">Leverage CSS media queries to apply different styles based on device characteristics like screen width, resolution, or orientation. When using the mobile-first approach, focus on min-width queries to progressively enhance layouts.</p>
+            <pre class="bg-gray-100 p-3 rounded my-4 overflow-auto">
+/* Base styles for mobile */
+.navigation {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Enhance for tablets */
+@media (min-width: 768px) {
+  .navigation {
+    flex-direction: row;
+  }
+}
+
+/* Further enhance for desktops */
+@media (min-width: 1024px) {
+  .navigation {
+    justify-content: space-between;
+  }
+}
+            </pre>
+            
+            <h2 class="text-2xl font-bold mt-6 mb-4">Best Practices for Mobile-First Development</h2>
+            
+            <ul class="list-disc pl-5 mb-4">
+                <li class="mb-2">Prioritize content: Focus on what's most important to users and ensure it loads first.</li>
+                <li class="mb-2">Optimize performance: Minimize HTTP requests, compress images, and leverage browser caching.</li>
+                <li class="mb-2">Design for touch: Create touch-friendly interfaces with appropriately sized tap targets (minimum 44×44 pixels).</li>
+                <li class="mb-2">Test across devices: Use real devices and emulators to ensure your site works well across the spectrum.</li>
+                <li class="mb-2">Consider connectivity limitations: Optimize for users on slower connections by implementing progressive loading strategies.</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-6 mb-4">Tools and Frameworks</h2>
+            <p class="mb-4">Several modern tools and frameworks make responsive, mobile-first development more accessible:</p>
+            
+            <ul class="list-disc pl-5 mb-4">
+                <li class="mb-2"><strong>Bootstrap:</strong> A popular CSS framework with built-in responsive components.</li>
+                <li class="mb-2"><strong>Tailwind CSS:</strong> A utility-first framework that makes creating custom responsive designs straightforward.</li>
+                <li class="mb-2"><strong>CSS Grid and Flexbox:</strong> Modern CSS layout systems that simplify responsive design.</li>
+                <li class="mb-2"><strong>Chrome DevTools:</strong> Includes device emulation for testing responsive designs.</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-6 mb-4">Conclusion</h2>
+            <p class="mb-4">Mastering responsive design principles for mobile-first development is no longer optional for web developers. By focusing on fluid layouts, flexible media, and appropriate breakpoints, you can create web experiences that delight users across all devices. Remember that responsive design is not just about making things fit—it's about delivering the right experience for each context.</p>
+            
+            <p>Start small, test often, and progressively enhance your designs to create truly responsive websites that stand the test of time across the ever-expanding device landscape.</p>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="px-4 py-4 border-t">
+            <h3 class="text-xl font-bold mb-4">Comments (42)</h3>
+            
+            <!-- Comment 1 -->
+            <div class="mb-4 pb-4 border-b">
+                <div class="flex items-start">
+                    <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white mr-3">
+                        <span class="text-xs">M</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-semibold">MobileDevPro</div>
+                        <div class="text-sm text-gray-500">2 days ago</div>
+                        <p class="mt-1 text-sm">Great article! I've been trying to implement mobile-first approach in my projects and this really helped clarify some concepts. The fluid grid example is particularly useful.</p>
+                        <div class="mt-2 flex text-sm">
+                            <button class="mr-4 text-gray-500 hover:text-blue-600">Like (23)</button>
+                            <button class="text-gray-500 hover:text-blue-600">Reply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comment 2 -->
+            <div class="mb-4 pb-4 border-b">
+                <div class="flex items-start">
+                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3">
+                        <span class="text-xs">D</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-semibold">DesignMaster</div>
+                        <div class="text-sm text-gray-500">3 days ago</div>
+                        <p class="mt-1 text-sm">I'd add that using CSS variables along with media queries can make managing breakpoint-specific styling much more maintainable. Would love to see a follow-up article on that topic!</p>
+                        <div class="mt-2 flex text-sm">
+                            <button class="mr-4 text-gray-500 hover:text-blue-600">Like (15)</button>
+                            <button class="text-gray-500 hover:text-blue-600">Reply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View More Comments Link -->
+            <button class="text-blue-600 hover:text-blue-800 font-medium">View all 42 comments</button>
+            
+            <!-- Add Comment Section -->
+            <div class="flex items-center mt-4 pt-4">
+                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3">
+                    <span class="text-xs">K</span>
+                </div>
+                <input type="text" placeholder="Add a comment..." class="flex-1 text-sm bg-transparent border-b focus:outline-none focus:border-blue-500">
+                <button class="text-blue-500 font-semibold text-sm ml-2">Post</button>
+            </div>
+        </div>
+
+
+
+
+
+        
+    </main>
+    <div>
+    <div class="border-b-2  border-gray-200 bg-white p-3">
+        <div class="flex">
+            <!-- Square Image on Left -->
+            <div class="relative mr-3  flex-shrink-0">
+                <a href="blogg.html" target="_self">    <img id="art2" src="" alt="Article thumbnail" class="w-24 h-24 object-cover rounded"></a>
+            </div>
+
+            <!-- Content on Right -->
+            <div class="flex-1"> <a href="blogg.html" target="_self"> 
+                <h3 class="font-bold text-base mb-1">How to Master Responsive Design Principles for Mobile First
+                    Development</h3>
+                <div class="text-sm text-gray-600">
+                    <div>CodeWithJames</div>
+                    <div>127K likes • 890K views • 5 days ago</div>
+                </div>
+            </div>
+
+            <!-- Three Dots Menu -->
+            <button class="text-gray-700 self-start ml-2">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+        </a>  </div>
+    </div>
+    <div class="border-b-2 mb-1 border-gray-200 bg-white p-3">
+        <div class="flex">
+            <!-- Square Image on Left -->
+            <div class="relative mr-3  flex-shrink-0">
+                <a href="blogg.html" target="_self">    <img id="art1" src="" alt="Article thumbnail" class="w-24 h-24 object-cover rounded"></a>
+            </div>
+
+            <!-- Content on Right -->
+            <div class="flex-1"> <a href="blogg.html" target="_self"> 
+                <h3 class="font-bold text-base mb-1">How to Master Responsive Design Principles for Mobile First
+                    Development</h3>
+                <div class="text-sm text-gray-600">
+                    <div>CodeWithJames</div>
+                    <div>127K likes • 890K views • 5 days ago</div>
+                </div>
+            </div>
+
+            <!-- Three Dots Menu -->
+            <button class="text-gray-700 self-start ml-2">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+        </a>  </div>
+    </div>
+    <!-- Recommended Articles -->
+    <div class="w-full mx-auto">
+        <!-- Instagram-style Post Card -->
+        <div class="border bg-white mb-1">
+            <!-- Header with profile info -->
+            <div class="flex items-center p-3 border-b">
+                <div class="w-9 h-9 rounded-full bg-red-500 flex items-center justify-center text-white mr-3">
+                    <span>K</span>
+                </div>
+                <div class="flex-1">
+                    <div class="font-semibold">kumara</div>
+                </div>
+                <button class="text-gray-700">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+            </div>
+
+            <!-- Video/Image content -->
+            <div class="relative">
+                <img id="image2" src="" alt="Video thumbnail" class="w-full aspect-video object-cover">
+                <div
+                    class="absolute bottom-3 right-3 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded-full">
+                    8:22
+                </div>
+                <button class="absolute inset-0 w-full h-full flex items-center justify-center">
+                    <div class="w-14 h-14 rounded-full bg-black bg-opacity-40 flex items-center justify-center">
+                        <i class="fas fa-play text-white text-2xl"></i>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Action buttons -->
+
+            <div class="m-2">
+                <div class="text-sm text-gray-500">127K likes • 890K views • 5 days ago</div>
+            </div>
+
+            <!-- Caption -->
+            <div class="m-2">
+                <span class="font-semibold">kumara</span>
+                <span class="ml-1">Test css repo #webdev #tailwindcss #tutorial</span>
+            </div>
+
+
+            <!-- Add comment -->
+            <div class="flex items-center mt-3 pt-3 border-t">
+                <div class="w-7 h-7 rounded-full bg-blue-500 flex items-center justify-center text-white m-3">
+                    <span class="text-xs">K</span>
+                </div>
+                <input type="text" placeholder="Add a comment..."
+                    class="flex-1 text-sm bg-transparent focus:outline-none">
+                <button class="text-blue-500 font-semibold text-sm m-2">Post</button>
+            </div>
+        </div>
+
+        <div class="border bg-white mb-1">
+            <!-- Header with profile info -->
+            <div class="flex items-center p-3 border-b">
+                <div class="w-9 h-9 rounded-full bg-red-500 flex items-center justify-center text-white mr-3">
+                    <span>K</span>
+                </div>
+                <div class="flex-1">
+                    <div class="font-semibold">kumara</div>
+                </div>
+                <button class="text-gray-700">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+            </div>
+
+            <!-- Video/Image content -->
+            <div class="relative">
+                <img id="image3" src="" alt="Video thumbnail" class="w-full aspect-video object-cover">
+                <div
+                    class="absolute bottom-3 right-3 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded-full">
+                    8:22
+                </div>
+                <button class="absolute inset-0 w-full h-full flex items-center justify-center">
+                    <div class="w-14 h-14 rounded-full bg-black bg-opacity-40 flex items-center justify-center">
+                        <i class="fas fa-play text-white text-2xl"></i>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Action buttons -->
+
+            <div class="m-2">
+                <div class="text-sm text-gray-500">127K likes • 890K views • 5 days ago</div>
+            </div>
+
+            <!-- Caption -->
+            <div class="m-2">
+                <span class="font-semibold">kumara</span>
+                <span class="ml-1">Test css repo #webdev #tailwindcss #tutorial</span>
+            </div>
+
+
+            <!-- Add comment -->
+            <div class="flex items-center mt-3 pt-3 border-t">
+                <div class="w-7 h-7 rounded-full bg-blue-500 flex items-center justify-center text-white m-3">
+                    <span class="text-xs">K</span>
+                </div>
+                <input type="text" placeholder="Add a comment..."
+                    class="flex-1 text-sm bg-transparent focus:outline-none">
+                <button class="text-blue-500 font-semibold text-sm m-2">Post</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200">
+        <div class="flex justify-around py-2">
+            <button class="flex flex-col items-center text-gray-600">
+                <a href="index.html"> <i class="fas fa-home text-xl"></i></a>
+                <a href="index.html"> <span class="text-xs mt-1">Home</span></a>
+             </button>
+            <button class="flex flex-col items-center text-gray-600">
+                <i class="fas fa-fire text-xl"></i>
+                <span class="text-xs mt-1">Trend</span>
+            </button>
+            
+            <button class="flex flex-col items-center  text-gray-600">
+                <i class="fas fa-plus px-4 bg-gray-200 rounded-full text-xl"></i>
+                <span class="text-xs mt-1">Post</span>
+            </button>
+            <button class="flex flex-col items-center text-gray-600">
+
+               
+                <a href="map.html">  <i class="fas fa-location text-lg"></i></a>
+                    <a href="map.html">  <span class="text-xs mt-1">Ping</span></a>
+            </button>
+          
+
+            <button class="flex flex-col items-center text-gray-600">
+
+                <div class="w-8 h-8  rounded-full bg-blue-500 text-white flex items-center justify-center">
+                    <span class="text-sm">K</span>
+
+                </div> 
+                <span class="text-xs mt-1">My page</span>
+            </button>
+               
+    </nav>
+</body>
+<script>
+    // Function to generate a random number
+    function getRandomNumber() {
+        return Math.floor(Math.random() * 60) + 1; // Random number between 1 and 1000
+    }
+    document.getElementById('art1').src = `https://picsum.photos/id/${getRandomNumber() + getRandomNumber()}/120`;
+    document.getElementById('art2').src = `https://picsum.photos/id/${getRandomNumber() + getRandomNumber()}/120`;
+    // Update the image sources with random numbers
+    document.getElementById('Banner').src = `https://picsum.photos/id/${getRandomNumber() + getRandomNumber()}/1200`;
+    document.getElementById('image2').src = `https://picsum.photos/id/${getRandomNumber() + getRandomNumber()}/600/340`;
+    document.getElementById('image3').src = `https://picsum.photos/id/${getRandomNumber() + getRandomNumber()}/600/340`;
+   </script>
+</html>
