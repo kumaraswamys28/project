@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRON STRENGTH: Professional Strongman Training System</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <!-- Navigation -->
+  <nav class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <div class="flex items-center">
+          <i class="fas fa-dumbbell text-2xl mr-3 text-yellow-500"></i>
+          <span class="font-bold text-xl tracking-tight">IRON STRENGTH</span>
+        </div>
+        <div class="hidden md:flex md:items-center">
+          <a href="#nutrition" class="px-3 py-2 rounded hover:bg-gray-800">Nutrition</a>
+          <a href="#workout" class="px-3 py-2 rounded hover:bg-gray-800">Training</a>
+          <a href="#progress" class="px-3 py-2 rounded hover:bg-gray-800">Progress</a>
+          <a href="#resources" class="px-3 py-2 rounded hover:bg-gray-800">Resources</a>
+        </div>
+        <div>
+          <button class="px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            <i class="fas fa-user mr-2"></i>My Account
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-xl">
+    <div class="container mx-auto px-4 py-12 md:py-20">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">PRO STRONGMAN<br><span class="text-yellow-500">TRAINING SYSTEM</span></h1>
+          <p class="text-lg md:text-xl opacity-90 mb-6">Scientifically-backed training & nutrition for maximum strength gains on a budget</p>
+          <div class="flex space-x-4">
+            <button class="px-6 py-3 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 transition duration-300 shadow-lg font-bold">
+              Start Your Plan
+            </button>
+            <button class="px-6 py-3 bg-transparent border-2 border-white text-white rounded-md hover:bg-white hover:text-gray-900 transition duration-300 shadow-lg">
+              Learn More
+            </button>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <img src="/api/placeholder/500/350" alt="Strongman athlete" class="rounded-lg shadow-2xl" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8 max-w-6xl">
+    <!-- Dashboard Section -->
+    <section class="mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-600">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-lg">Daily Protein Goal</h3>
+            <i class="fas fa-drumstick-bite text-blue-600 text-2xl"></i>
+          </div>
+          <div class="flex items-end">
+            <span class="text-4xl font-bold text-blue-700">184g</span>
+            <span class="ml-2 text-gray-500">/ day</span>
+          </div>
+          <div class="mt-4 bg-gray-200 rounded-full h-2.5">
+            <div class="bg-blue-600 h-2.5 rounded-full w-3/4"></div>
+          </div>
+          <div class="mt-2 text-sm text-gray-500 flex justify-between">
+            <span>Current: 138g</span>
+            <span>Goal: 184g</span>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-green-600">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-lg">Workout Completion</h3>
+            <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+          </div>
+          <div class="flex items-end">
+            <span class="text-4xl font-bold text-green-700">80%</span>
+            <span class="ml-2 text-gray-500">this week</span>
+          </div>
+          <div class="mt-4 bg-gray-200 rounded-full h-2.5">
+            <div class="bg-green-600 h-2.5 rounded-full w-4/5"></div>
+          </div>
+          <div class="mt-2 text-sm text-gray-500 flex justify-between">
+            <span>4/5 workouts</span>
+            <span>Goal: 5/5</span>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-purple-600">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-lg">Weight Progress</h3>
+            <i class="fas fa-weight text-purple-600 text-2xl"></i>
+          </div>
+          <div class="flex items-end">
+            <span class="text-4xl font-bold text-purple-700">76kg</span>
+            <span class="ml-2 text-gray-500">current</span>
+          </div>
+          <div class="mt-4 bg-gray-200 rounded-full h-2.5">
+            <div class="bg-purple-600 h-2.5 rounded-full w-4/5"></div>
+          </div>
+          <div class="mt-2 text-sm text-gray-500 flex justify-between">
+            <span>Started: 72kg</span>
+            <span>Goal: 92kg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nutrition Section -->
+    <section id="nutrition" class="mb-12">
+      <div class="flex items-center mb-6">
+        <div class="bg-yellow-500 p-3 rounded-full text-white mr-4">
+          <i class="fas fa-utensils text-xl"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-gray-800">Professional Nutrition Plan</h2>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+        <div class="bg-yellow-500 px-6 py-4">
+          <h3 class="text-xl font-bold text-white">High-Protein Indian Vegetarian Foods</h3>
+        </div>
+        <div class="p-6">
+          <p class="mb-4 text-gray-700">These scientifically-proven protein sources will fuel your strongman training while maintaining your vegetarian diet and budget:</p>
+          
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+              <thead>
+                <tr class="bg-gray-100">
+                  <th class="py-3 px-4 border-b text-left">Food Item</th>
+                  <th class="py-3 px-4 border-b text-left">Protein (per 100g)</th>
+                  <th class="py-3 px-4 border-b text-left">Cost Efficiency</th>
+                  <th class="py-3 px-4 border-b text-left">Strategic Benefits</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 border-b font-medium">Lentils (Dal)</td>
+                  <td class="py-3 px-4 border-b">9g</td>
+                  <td class="py-3 px-4 border-b"><span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">High Value</span></td>
+                  <td class="py-3 px-4 border-b">Complete amino profile when combined with rice; rich in iron</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 border-b font-medium">Chickpeas</td>
+                  <td class="py-3 px-4 border-b">19g</td>
+                  <td class="py-3 px-4 border-b"><span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">High Value</span></td>
+                  <td class="py-3 px-4 border-b">Rich in fiber and complex carbs for prolonged energy</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 border-b font-medium">Paneer</td>
+                  <td class="py-3 px-4 border-b">18g</td>
+                  <td class="py-3 px-4 border-b"><span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Medium Value</span></td>
+                  <td class="py-3 px-4 border-b">Complete protein with all essential amino acids for muscle repair</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 border-b font-medium">Tofu</td>
+                  <td class="py-3 px-4 border-b">8g</td>
+                  <td class="py-3 px-4 border-b"><span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Medium Value</span></td>
+                  <td class="py-3 px-4 border-b">High in iron and calcium; versatile cooking applications</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 border-b font-medium">Eggs</td>
+                  <td class="py-3 px-4 border-b">6g (per egg)</td>
+                  <td class="py-3 px-4 border-b"><span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">High Value</span></td>
+                  <td class="py-3 px-4 border-b">High biological value protein with leucine for muscle synthesis</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 border-b font-medium">Greek Yogurt</td>
+                  <td class="py-3 px-4 border-b">10g</td>
+                  <td class="py-3 px-4 border-b"><span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Medium Value</span></td>
+                  <td class="py-3 px-4 border-b">Contains probiotics for gut health and protein absorption</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 border-b font-medium">Peanuts</td>
+                  <td class="py-3 px-4 border-b">25g</td>
+                  <td class="py-3 px-4 border-b"><span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">High Value</span></td>
+                  <td class="py-3 px-4 border-b">Dense caloric content for bulking; healthy fats support testosterone</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 border-b font-medium">Rajma (Kidney Beans)</td>
+                  <td class="py-3 px-4 border-b">8g</td>
+                  <td class="py-3 px-4 border-b"><span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">High Value</span></td>
+                  <td class="py-3 px-4 border-b">Slow-digesting carbs with protein for sustained energy</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Meal Plan Section -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+        <div class="bg-yellow-500 px-6 py-4">
+          <h3 class="text-xl font-bold text-white">Strongman Meal Plan (2800-3000 calories)</h3>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-col md:flex-row mb-6">
+            <div class="md:w-1/2 p-4">
+              <h4 class="font-bold text-lg mb-4 flex items-center">
+                <i class="fas fa-sun text-yellow-500 mr-2"></i>Morning Nutrition
+              </h4>
+              
+              <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                <h5 class="font-bold text-gray-700">Breakfast (6:00 AM)</h5>
+                <ul class="mt-2 space-y-1 text-gray-600">
+                  <li>• 4 eggs (boiled/scrambled)</li>
+                  <li>• 2 whole wheat chapatis</li>
+                  <li>• 1 cup vegetable curry</li>
+                  <li><span class="text-sm text-gray-500">24g protein | 400 calories</span></li>
+                </ul>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                <h5 class="font-bold text-gray-700">Mid-Morning (9:00 AM)</h5>
+                <ul class="mt-2 space-y-1 text-gray-600">
+                  <li>• 1 glass milk (250ml)</li>
+                  <li>• 30g mixed nuts</li>
+                  <li><span class="text-sm text-gray-500">15g protein | 300 calories</span></li>
+                </ul>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-bold text-gray-700">Lunch (12:00 PM)</h5>
+                <ul class="mt-2 space-y-1 text-gray-600">
+                  <li>• 1 cup dal</li>
+                  <li>• 1 cup rice</li>
+                  <li>• 100g paneer curry</li>
+                  <li>• Mixed vegetables</li>
+                  <li><span class="text-sm text-gray-500">35g protein | 650 calories</span></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="md:w-1/2 p-4">
+              <h4 class="font-bold text-lg mb-4 flex items-center">
+                <i class="fas fa-moon text-indigo-400 mr-2"></i>Evening Nutrition
+              </h4>
+              
+              <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                <h5 class="font-bold text-gray-700">Pre-Workout (4:00 PM)</h5>
+                <ul class="mt-2 space-y-1 text-gray-600">
+                  <li>• 1 banana</li>
+                  <li>• 20g peanut butter</li>
+                  <li>• 1 cup yogurt</li>
+                  <li><span class="text-sm text-gray-500">12g protein | 350 calories</span></li>
+                </ul>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                <h5 class="font-bold text-gray-700">Post-Workout (7:00 PM)</h5>
+                <ul class="mt-2 space-y-1 text-gray-600">
+                  <li>• Homemade protein shake:</li>
+                  <li>  - 300ml milk</li>
+                  <li>  - 2 tbsp peanut butter</li>
+                  <li>  - 1 banana</li>
+                  <li><span class="text-sm text-gray-500">25g protein | 450 calories</span></li>
+                </ul>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h5 class="font-bold text-gray-700">Dinner (8:30 PM)</h5>
+                <ul class="mt-2 space-y-1 text-gray-600">
+                  <li>• 1 cup rajma curry</li>
+                  <li>• 2 chapatis</li>
+                  <li>• 50g tofu dish</li>
+                  <li>• 1 cup vegetable curry</li>
+                  <li><span class="text-sm text-gray-500">30g protein | 600 calories</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+            <h5 class="font-bold flex items-center">
+              <i class="fas fa-bolt text-yellow-500 mr-2"></i>Nutritional Totals
+            </h5>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
+              <div>
+                <span class="text-gray-600 text-sm">Total Protein</span>
+                <p class="font-bold text-xl">141g</p>
+              </div>
+              <div>
+                <span class="text-gray-600 text-sm">Total Calories</span>
+                <p class="font-bold text-xl">2750</p>
+              </div>
+              <div>
+                <span class="text-gray-600 text-sm">Carbohydrates</span>
+                <p class="font-bold text-xl">310g</p>
+              </div>
+              <div>
+                <span class="text-gray-600 text-sm">Healthy Fats</span>
+                <p class="font-bold text-xl">85g</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workout Section -->
+    <section id="workout" class="mb-12">
+      <div class="flex items-center mb-6">
+        <div class="bg-blue-600 p-3 rounded-full text-white mr-4">
+          <i class="fas fa-dumbbell text-xl"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-gray-800">Professional Training System</h2>
+      </div>
+      
+      <div class="mb-6">
+        <div class="bg-blue-600 text-white p-4 rounded-t-lg flex items-center justify-between">
+          <h3 class="text-xl font-bold">5-Day Split Training Program</h3>
+          <span class="bg-white text-blue-600 px-3 py-1 rounded-full text-sm font-bold">Beginner to Intermediate</span>
+        </div>
+        
+        <div class="bg-white rounded-b-lg shadow-lg overflow-hidden">
+          <!-- Tabs -->
+          <div class="flex border-b">
+            <button class="flex-1 py-4 px-6 text-center border-b-2 border-blue-600 font-bold text-blue-600">Overview</button>
+            <button class="flex-1 py-4 px-6 text-center text-gray-600 hover:bg-gray-50">Weekly Plan</button>
+            <button class="flex-1 py-4 px-6 text-center text-gray-600 hover:bg-gray-50">Exercise Library</button>
+            <button class="flex-1 py-4 px-6 text-center text-gray-600 hover:bg-gray-50">Track Progress</button>
+          </div>
+          
+          <!-- Content -->
+          <div class="p-6">
+            <p class="text-gray-700 mb-6">This program is designed specifically for strongman training with minimal equipment. Each workout focuses on compound movements that build functional strength applicable to strongman events.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <h4 class="font-bold text-lg text-blue-700 mb-2">Program Benefits</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                    <span>Optimized for muscle hypertrophy and strength gains</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                    <span>Adaptable for home training with minimal equipment</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                    <span>Progressive overload system for continued growth</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <h4 class="font-bold text-lg text-blue-700 mb-2">Equipment Needed</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-circle text-blue-500 text-xs mt-1.5 mr-2"></i>
+                    <span>Heavy stones or concrete blocks (various weights)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-circle text-blue-500 text-xs mt-1.5 mr-2"></i>
+                    <span>Metal pipes or wooden logs</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-circle text-blue-500 text-xs mt-1.5 mr-2"></i>
+                    <span>DIY sandbags (use old bags filled with sand)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-circle text-blue-500 text-xs mt-1.5 mr-2"></i>
+                    <span>Sturdy chairs or boxes for elevated exercises</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <h4 class="font-bold text-lg text-blue-700 mb-2">Training Principles</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-circle text-blue-500 text-xs mt-1.5 mr-2"></i>
+                    <span>Progressive overload: Increase weight/reps weekly</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-circle text-blue-500 text-xs mt-1.5 mr-2"></i>
+                    <span>Time under tension: Control movements</span>
+                  </li>
+                  <li class="flex items-start">
+                  </li>></ul></div></div></div></div></div></section></main></body></html>

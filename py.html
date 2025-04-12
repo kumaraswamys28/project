@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StrongFit Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .bottom-nav {
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+    .exercise-card {
+      transition: all 0.3s ease;
+    }
+    .exercise-card:hover {
+      transform: translateY(-2px);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .progress-ring__circle {
+      transition: stroke-dashoffset 0.3s;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans pb-16">
+  <!-- Status Bar -->
+  <div class="bg-black text-white p-1 flex justify-between items-center text-xs">
+    <span>9:41 AM</span>
+    <div class="flex space-x-1">
+      <i class="fas fa-signal"></i>
+      <i class="fas fa-wifi"></i>
+      <i class="fas fa-battery-three-quarters"></i>
+    </div>
+  </div>
+
+  <!-- App Bar -->
+  <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg sticky top-0 z-10">
+    <div class="px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <i class="fas fa-dumbbell text-2xl mr-2"></i>
+        <h1 class="text-xl font-bold">StrongFit Pro</h1>
+      </div>
+      <div class="flex items-center space-x-4">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-bell"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- User Profile Card -->
+  <div class="mx-4 -mt-4 bg-white rounded-xl shadow-lg overflow-hidden relative z-20">
+    <div class="p-4">
+      <div class="flex items-center">
+        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-xl">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="ml-4">
+          <h2 class="font-bold text-lg">Indian Strongman</h2>
+          <p class="text-gray-600 text-sm">Vegetarian Diet • Home Training</p>
+        </div>
+      </div>
+      
+      <div class="flex justify-between mt-4 text-center">
+        <div>
+          <div class="font-bold">82 kg</div>
+          <div class="text-xs text-gray-500">Current</div>
+        </div>
+        <div>
+          <div class="font-bold">92 kg</div>
+          <div class="text-xs text-gray-500">Goal</div>
+        </div>
+        <div>
+          <div class="font-bold">10 kg</div>
+          <div class="text-xs text-gray-500">To Gain</div>
+        </div>
+        <div class="relative w-12 h-12">
+          <svg class="w-12 h-12">
+            <circle class="progress-ring__circle" stroke="#e5e7eb" stroke-width="4" fill="transparent" r="15" cx="20" cy="20"/>
+            <circle class="progress-ring__circle" stroke="#4f46e5" stroke-width="4" fill="transparent" r="15" cx="20" cy="20" stroke-dasharray="94.2" stroke-dashoffset="30"/>
+          </svg>
+          <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs font-bold">68%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="mt-4 px-4">
+    <!-- Navigation Tabs -->
+    <div class="flex mb-4 bg-gray-200 rounded-lg p-1">
+      <button class="tab-btn flex-1 py-2 text-center rounded-lg bg-blue-600 text-white font-medium text-sm" data-tab="workout">
+        <i class="fas fa-dumbbell mr-1"></i> Workout
+      </button>
+      <button class="tab-btn flex-1 py-2 text-center text-gray-700 font-medium text-sm" data-tab="diet">
+        <i class="fas fa-utensils mr-1"></i> Diet
+      </button>
+      <button class="tab-btn flex-1 py-2 text-center text-gray-700 font-medium text-sm" data-tab="progress">
+        <i class="fas fa-chart-line mr-1"></i> Progress
+      </button>
+    </div>
+
+    <!-- Workout Tab Content -->
+    <div id="workout-tab" class="tab-content active">
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4">
+        <h2 class="text-lg font-bold text-blue-700 mb-2">Today's Workout: Push Day</h2>
+        <div class="bg-blue-50 p-3 rounded-lg mb-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="bg-blue-600 h-10 w-10 rounded-full flex items-center justify-center text-white">
+                <i class="fas fa-fire"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="font-bold">4 Exercises</h3>
+                <p class="text-xs text-gray-600">Estimated 45 mins</p>
+              </div>
+            </div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium">Start</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workout Categories -->
+      <h3 class="text-lg font-bold mb-3">5-Day Split Routine</h3>
+      
+      <!-- Push Day -->
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4 exercise-card">
+        <div class="flex justify-between items-center mb-3">
+          <h3 class="font-bold">Day 1: Push Day</h3>
+          <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Chest, Shoulders, Triceps</span>
+        </div>
+
+        <div class="space-y-3">
+          <div class="flex items-start">
+            <img src="/api/placeholder/80/80" class="rounded-lg" alt="push-up"/>
+            <div class="ml-3">
+              <h4 class="font-medium">Standard Push-ups</h4>
+              <p class="text-sm text-gray-600">4 sets x 12-20 reps</p>
+              <p class="text-xs text-gray-500 mt-1">Target: Chest, Triceps, Front Delts</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <img src="/api/placeholder/80/80" class="rounded-lg" alt="dips"/>
+            <div class="ml-3">
+              <h4 class="font-medium">Parallel Bar Dips</h4>
+              <p class="text-sm text-gray-600">3 sets x 8-12 reps</p>
+              <p class="text-xs text-gray-500 mt-1">Target: Lower Chest, Triceps</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <img src="/api/placeholder/80/80" class="rounded-lg" alt="overhead press"/>
+            <div class="ml-3">
+              <h4 class="font-medium">Overhead Press</h4>
+              <p class="text-sm text-gray-600">4 sets x 10-12 reps</p>
+              <p class="text-xs text-gray-500 mt-1">Target: Shoulders, Upper Chest, Triceps</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <img src="/api/placeholder/80/80" class="rounded-lg" alt="diamond pushups"/>
+            <div class="ml-3">
+              <h4 class="font-medium">Diamond Push-ups</h4>
+              <p class="text-sm text-gray-600">3 sets x 10-15 reps</p>
+              <p class="text-xs text-gray-500 mt-1">Target: Triceps, Inner Chest</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pull Day -->
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4 exercise-card">
+        <div class="flex justify-between items-center mb-3">
+          <h3 class="font-bold">Day 2: Pull Day</h3>
+          <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Back, Biceps, Rear Delts</span>
+        </div>
+
+        <div class="space-y-3">
+          <div class="flex items-start">
+            <img src="/api/placeholder/80/80" class="rounded-lg" alt="pull-ups"/>
+            <div class="ml-3">
+              <h4 class="font-medium">Pull-ups/Chin-ups</h4>
+              <p class="text-sm text-gray-600">4 sets x 8-10 reps</p>
+              <p class="text-xs text-gray-500 mt-1">Target: Lats, Biceps, Forearms</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <img src="/api/placeholder/80/80" class="rounded-lg" alt="rows"/>
+            <div class="ml-3">
+              <h4 class="font-medium">Bent-over Rows</h4>
+              <p class="text-sm text-gray-600">4 sets x 10-12 reps</p>
+              <p class="text-xs text-gray-500 mt-1">Target: Upper Back, Rhomboids</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <img src="/api/placeholder/80/80" class="rounded-lg" alt="bicep curls"/>
+            <div class="ml-3">
+              <h4 class="font-medium">Bicep Curls</h4>
+              <p class="text-sm text-gray-600">3 sets x 10-12 reps</p>
+              <p class="text-xs text-gray-500 mt-1">Target: Biceps, Forearms</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <img src="/api/placeholder/80/80" class="rounded-lg" alt="face pulls"/>
+            <div class="ml-3">
+              <h4 class="font-medium">Face-pulls (with rope/band)</h4>
+              <p class="text-sm text-gray-600">3 sets x 15-20 reps</p>
+              <p class="text-xs text-gray-500 mt-1">Target: Rear Delts, Upper Back</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leg Day (Simplified view) -->
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4 exercise-card">
+        <div class="flex justify-between items-center">
+          <h3 class="font-bold">Day 3: Leg Day</h3>
+          <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Quads, Hamstrings, Glutes</span>
+        </div>
+        <p class="text-sm text-gray-600 mt-2">4 exercises focused on lower body development</p>
+        <button class="text-blue-600 text-sm font-medium mt-2">View details →</button>
+      </div>
+
+      <!-- Core & Conditioning (Simplified view) -->
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4 exercise-card">
+        <div class="flex justify-between items-center">
+          <h3 class="font-bold">Day 4: Core & Conditioning</h3>
+          <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Abs, Strongman Skills</span>
+        </div>
+        <p class="text-sm text-gray-600 mt-2">3 exercises focusing on core strength and strongman events</p>
+        <button class="text-blue-600 text-sm font-medium mt-2">View details →</button>
+      </div>
+
+      <!-- Rest Day (Simplified view) -->
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4 exercise-card">
+        <div class="flex justify-between items-center">
+          <h3 class="font-bold">Day 5: Active Rest</h3>
+          <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Recovery</span>
+        </div>
+        <p class="text-sm text-gray-600 mt-2">Light cardio and mobility work for recovery</p>
+        <button class="text-blue-600 text-sm font-medium mt-2">View details →</button>
+      </div>
+    </div>
+
+    <!-- Diet Tab Content -->
+    <div id="diet-tab" class="tab-content">
+      <!-- Protein Tracker -->
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4">
+        <h2 class="text-lg font-bold text-blue-700 mb-2">Daily Protein Tracker</h2>
+        <div class="relative pt-1">
+          <div class="flex mb-2 items-center justify-between">
+            <div>
+              <span class="text-xs font-semibold inline-block text-blue-600">112g / 184g</span>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-semibold inline-block text-blue-600">61%</span>
+            </div>
+          </div>
+          <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
+            <div style="width:61%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meal Plan -->
+      <h3 class="text-lg font-bold mb-3">Today's Meal Plan</h3>
+      
+      <div class="space-y-4 mb-6">
+        <!-- Breakfast -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="p-4">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="font-bold">Breakfast</h3>
+              <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">24g protein</span>
+            </div>
+            <div class="flex items-center">
+              <img src="/api/placeholder/80/80" class="rounded-lg" alt="breakfast"/>
+              <div class="ml-3">
+                <p class="text-sm">4 eggs (boiled) + 2 chapatis</p>
+                <p class="text-xs text-gray-500 mt-1">400 calories</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-t px-4 py-2 bg-gray-50">
+            <button class="text-blue-600 text-xs font-medium flex items-center">
+              <i class="fas fa-utensils mr-1"></i> View Recipe
+            </button>
+          </div>
+        </div>
+
+        <!-- Mid-Morning -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="p-4">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="font-bold">Mid-Morning Snack</h3>
+              <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">8g protein</span>
+            </div>
+            <div class="flex items-center">
+              <img src="/api/placeholder/80/80" class="rounded-lg" alt="snack"/>
+              <div class="ml-3">
+                <p class="text-sm">1 glass milk + 20g peanuts</p>
+                <p class="text-xs text-gray-500 mt-1">250 calories</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lunch -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="p-4">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="font-bold">Lunch</h3>
+              <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">35g protein</span>
+            </div>
+            <div class="flex items-center">
+              <img src="/api/placeholder/80/80" class="rounded-lg" alt="lunch"/>
+              <div class="ml-3">
+                <p class="text-sm">1 cup dal + 1 cup rice + 100g paneer</p>
+                <p class="text-xs text-gray-500 mt-1">600 calories</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-t px-4 py-2 bg-gray-50">
+            <button class="text-blue-600 text-xs font-medium flex items-center">
+              <i class="fas fa-utensils mr-1"></i> View Recipe
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- View Full Plan Button -->
+      <div class="text-center mb-6">
+        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-medium">
+          View Complete Diet Plan
+        </button>
+      </div>
+
+      <!-- High-Protein Foods -->
+      <h3 class="text-lg font-bold mb-3">High-Protein Vegetarian Foods</h3>
+      
+      <div class="grid grid-cols-2 gap-3 mb-4">
+        <div class="bg-white rounded-lg shadow p-3 text-center">
+          <div class="text-2xl mb-1">🥛</div>
+          <h4 class="font-medium text-sm">Greek Yogurt</h4>
+          <p class="text-xs text-blue-600 font-semibold">10g / 100g</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-3 text-center">
+          <div class="text-2xl mb-1">🧀</div>
+          <h4 class="font-medium text-sm">Paneer</h4>
+          <p class="text-xs text-blue-600 font-semibold">18g / 100g</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-3 text-center">
+          <div class="text-2xl mb-1">🥜</div>
+          <h4 class="font-medium text-sm">Peanuts</h4>
+          <p class="text-xs text-blue-600 font-semibold">25g / 100g</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-3 text-center">
+          <div class="text-2xl mb-1">🥚</div>
+          <h4 class="font-medium text-sm">Eggs</h4>
+          <p class="text-xs text-blue-600 font-semibold">6g / egg</p>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <button class="text-blue-600 text-sm font-medium">
+          View All Foods →
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Tab Content -->
+    <div id="progress-tab" class="tab-content">
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4">
+        <h2 class="text-lg font-bold text-blue-700 mb-4">Your Progress</h2>
+        
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-medium">Weight Progress</span>
+              <span class="text-sm text-gray-500">82kg / 92kg</span>
+            </div>
+            <div class="relative pt-1">
+              <div class="overflow-hidden h-2 mb-1 text-xs flex rounded bg-blue-200">
+                <div style="width:68%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600"></div>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500">You've gained 6.8kg (68%)</p>
+          </div>
+          
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-medium">Strength Progress</span>
+              <span class="text-sm text-gray-500">75%</span>
+            </div>
+            <div class="relative pt-1">
+              <div class="overflow-hidden h-2 mb-1 text-xs flex rounded bg-green-200">
+                <div style="width:75%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-600"></div>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500">Your strength is steadily increasing</p>
+          </div>
+          
+          <div>
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-medium">Diet Adherence</span>
+              <span class="text-sm text-gray-500">82%</span>
+            </div>
+            <div class="relative pt-1">
+              <div class="overflow-hidden h-2 mb-1 text-xs flex rounded bg-yellow-200">
+                <div style="width:82%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-600"></div>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500">You've hit your protein goals most days</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weight Chart -->
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-bold">Weight Tracking</h3>
+          <select class="text-xs border rounded px-2 py-1">
+            <option>Last 4 Weeks</option>
+            <option>Last 3 Months</option>
+            <option>All Time</option>
+          </select>
+        </div>
+        
+        <div class="h-40 flex items-end justify-between px-2">
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-600 w-6 rounded-t" style="height: 50px;"></div>
+            <p class="text-xs mt-1">Week 1</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-600 w-6 rounded-t" style="height: 65px;"></div>
+            <p class="text-xs mt-1">Week 2</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-600 w-6 rounded-t" style="height: 85px;"></div>
+            <p class="text-xs mt-1">Week 3</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-600 w-6 rounded-t" style="height: 100px;"></div>
+            <p class="text-xs mt-1">Week 4</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Training Records -->
+      <div class="bg-white rounded-xl shadow-md p-4 mb-4">
+        <h3 class="font-bold mb-3">Personal Records</h3>
+        
+        <div class="space-y-3">
+          <div class="flex justify-between items-center pb-2 border-b">
+            <div class="flex items-center">
+              <i class="fas fa-dumbbell text-blue-600 mr-2"></i>
+              <span class="text-sm">Push-ups</span>
+            </div>
+            <div class="text-sm font-bold">28 reps</div>
+          </div>
+          
+          <div class="flex justify-between items-center pb-2 border-b">
+            <div class="flex items-center">
+              <i class="fas fa-dumbbell text-blue-600 mr-2"></i>
+              <span class="text-sm">Stone Squats</span>
+            </div>
+            <div class="text-sm font-bold">15kg x 20</div>
+          </div>
+          
+          <div class="flex justify-between items-center pb-2 border-b">
+            <div class="flex items-center">
+              <i class="fas fa-dumbbell text-blue-600 mr-2"></i>
+              <span class="text-sm">Farmer's Walk</span>
+            </div>
+            <div class="text-sm font-bold">20kg x 45s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 w-full bg-white bottom-nav flex justify-around py-2">
+    <button class="flex flex-col items-center justify-center w-1/5 text-blue-600">
+      <i class="fas fa-home text-lg"></i>
+      <span class="text-xs mt-1">Home</span>
+    </button>
+    <button class="flex flex-col items-center justify-center w-1/5 text-gray-500">
+      <i class="fas fa-search text-lg"></i>
+      <span class="text-xs mt-1">Explore</span>
+    </button>
+    <button class="flex flex-col items-center justify-center w-1/5 bg-blue-600 text-white rounded-full -mt-4 shadow-lg h-14">
+      <i class="fas fa-plus text-lg"></i>
+    </button>
+    <button class="flex flex-col items-center justify-center w-1/5 text-gray-500">
+      <i class="fas fa-trophy text-lg"></i>
+      <span class="text-xs mt-1">Goals</span>
+    </button>
+    <button class="flex flex-col items-center justify-center w-1/5 text-gray-500">
+      <i class="fas fa-user text-lg"></i>
+      <span class="text-xs mt-1">Profile</span>
+    </button>
+  </nav>
+
+  <script>
+    // Simple tab navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all buttons
+          tabBtns.forEach(b => {
+            b.classList.remove('bg-blue-600', 'text-white');
+            b.classList.add('text-gray-700');
+          });
+          
+          // Add active class to clicked button
+          this.classList.add('bg-blue-600', 'text-white');
+          this.classList.remove('text-gray-700');
+          
+          // Hide all tab contents
+          tabContents.forEach(content => {
+            content.classList.remove('active');
+          });
+          
+          // Show selected tab content
+          const tabId = this.getAttribute('data-tab') + '-tab';
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Strongman Journey</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.5/cdn.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+  <div x-data="{
+    activeTab: 'food',
+    showMenu: false,
+    showProteinCalculator: false,
+    bodyWeight: 70,
+    proteinNeed: 140,
+    calculateProtein() {
+      this.proteinNeed = Math.round(this.bodyWeight * 2);
+    },
+    foodItems: [
+      {name: 'Lentils (Dal)', protein: '9g', notes: 'Affordable and a staple in many Indian diets.'},
+      {name: 'Chickpeas', protein: '19g', notes: 'Great for making chole, hummus, etc.'},
+      {name: 'Paneer', protein: '18g', notes: 'High in protein; can be cooked in many ways.'},
+      {name: 'Tofu', protein: '8g', notes: 'A versatile protein-rich food for vegetarians.'},
+      {name: 'Eggs', protein: '6g (per egg)', notes: 'If you eat eggs, they\'re a great source of protein.'},
+      {name: 'Greek Yogurt', protein: '10g', notes: 'Rich in protein and good for digestion.'},
+      {name: 'Milk', protein: '3.5g (per 100ml)', notes: 'Drink 2-3 glasses a day for additional protein.'},
+      {name: 'Peanuts', protein: '25g', notes: 'High in protein and healthy fats.'},
+      {name: 'Pumpkin Seeds', protein: '24g', notes: 'Can be roasted and eaten as a snack.'},
+      {name: 'Soybeans', protein: '17g', notes: 'Can be made into soy milk or tofu.'},
+      {name: 'Quinoa', protein: '14g', notes: 'Expensive but high in protein and carbs.'},
+      {name: 'Rajma (Kidney Beans)', protein: '8g', notes: 'Affordable and protein-rich.'}
+    ],
+    mealPlan: [
+      {time: 'Breakfast', items: '4 eggs (boiled) + 2 chapatis (whole wheat)', protein: '24g', calories: '400', notes: 'Eggs provide protein, chapatis offer carbs for energy.'},
+      {time: 'Mid-Morning Snack', items: '1 glass of milk (200ml) + 20g peanuts', protein: '8g', calories: '250', notes: 'High-protein milk and healthy fats from peanuts.'},
+      {time: 'Lunch', items: '1 cup cooked dal + 1 cup rice + 100g paneer', protein: '35g', calories: '600', notes: 'Dal and paneer are both excellent protein sources. Rice provides carbs.'},
+      {time: 'Evening Snack', items: '1 glass of buttermilk or yogurt (200ml)', protein: '8g', calories: '100', notes: 'Light and protein-packed.'},
+      {time: 'Dinner', items: '1 cup rajma + 1 cup rice + 50g tofu', protein: '30g', calories: '600', notes: 'Protein from tofu and rajma, with carbs from rice.'},
+      {time: 'Before Bed', items: '1 glass of milk (200ml)', protein: '7g', calories: '150', notes: 'Slow-digesting protein from milk to support muscle repair overnight.'}
+    ],
+    workoutSchedule: [
+      {
+        day: 'Day 1',
+        title: 'Push Day',
+        exercises: [
+          {name: 'Push-ups', sets: '4', reps: '12-20', equipment: 'Use a bench for incline push-ups'},
+          {name: 'Dips', sets: '3', reps: '8-12', equipment: 'Use sturdy chairs or parallel bars'},
+          {name: 'Overhead press', sets: '4', reps: '10-12', equipment: 'Use a heavy stone, bucket, or pipe'}
+        ]
+      },
+      {
+        day: 'Day 2',
+        title: 'Pull Day',
+        exercises: [
+          {name: 'Pull-ups (or bodyweight rows)', sets: '4', reps: '8-10', equipment: 'Use a strong horizontal bar or branches'},
+          {name: 'Bent-over rows', sets: '4', reps: '10-12', equipment: 'Use a heavy object like a stone'},
+          {name: 'Bicep curls', sets: '3', reps: '10-12', equipment: 'Use a stone or pipe'}
+        ]
+      },
+      {
+        day: 'Day 3',
+        title: 'Leg Day',
+        exercises: [
+          {name: 'Squats', sets: '4', reps: '15-20', equipment: 'Bodyweight or with a stone for resistance'},
+          {name: 'Lunges', sets: '4', reps: '12-15 per leg', equipment: 'Bodyweight or with stones'},
+          {name: 'Deadlifts', sets: '4', reps: '8-12', equipment: 'Use a stone or metal pipe'}
+        ]
+      },
+      {
+        day: 'Day 4',
+        title: 'Core & Conditioning',
+        exercises: [
+          {name: 'Planks', sets: '3', reps: '1-2 min', equipment: 'No equipment required'},
+          {name: 'Russian twists', sets: '4', reps: '20', equipment: 'Use a stone for weight'},
+          {name: 'Farmer\'s walks', sets: '4', reps: '30 seconds', equipment: 'Carry stones or buckets'}
+        ]
+      },
+      {
+        day: 'Day 5',
+        title: 'Active Rest',
+        exercises: [
+          {name: 'Light cardio (walking, running, cycling)', sets: '', reps: '20-30 minutes', equipment: 'No equipment required'}
+        ]
+      }
+    ],
+    tips: [
+      'Buy in Bulk: Purchase staples like rice, dal, and lentils in bulk to save money.',
+      'Make Your Own Protein Shake: If you want an alternative to whey protein, try mixing yogurt, milk, and peanut butter for a natural protein shake.',
+      'Use Leftovers: Save leftover dal, rice, and vegetables to use in your next meal.',
+      'Farmers Markets: Look for cheaper, fresh produce at local farmers\' markets.',
+      'Grow Your Own Vegetables: If possible, growing some vegetables (like spinach or tomatoes) at home can save money.'
+    ],
+    additionalAdvice: [
+      'Consistency is Key: Stick to your diet and workout routine for steady muscle gain.',
+      'Get Enough Sleep: Muscle recovery happens during sleep, so aim for 7-9 hours.',
+      'Hydration: Drink plenty of water to support muscle function and recovery.'
+    ]
+  }">
+    <!-- Header -->
+    <header class="bg-indigo-700 text-white shadow-lg sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <h1 class="text-xl font-bold">Budget Strongman Journey</h1>
+        <button @click="showMenu = !showMenu" class="md:hidden focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div x-show="showMenu" 
+           x-transition:enter="transition ease-out duration-200"
+           x-transition:enter-start="opacity-0 transform -translate-y-2"
+           x-transition:enter-end="opacity-100 transform translate-y-0"
+           x-transition:leave="transition ease-in duration-200"
+           x-transition:leave-start="opacity-100 transform translate-y-0"
+           x-transition:leave-end="opacity-0 transform -translate-y-2"
+           class="md:hidden bg-indigo-800 shadow-lg">
+        <nav class="container mx-auto px-4 py-2">
+          <ul class="flex flex-col space-y-2">
+            <li><a @click="activeTab = 'food'; showMenu = false" class="block py-2 hover:bg-indigo-600 px-2 rounded" :class="{'bg-indigo-600': activeTab === 'food'}">High-Protein Foods</a></li>
+            <li><a @click="activeTab = 'meal'; showMenu = false" class="block py-2 hover:bg-indigo-600 px-2 rounded" :class="{'bg-indigo-600': activeTab === 'meal'}">Meal Plan</a></li>
+            <li><a @click="activeTab = 'workout'; showMenu = false" class="block py-2 hover:bg-indigo-600 px-2 rounded" :class="{'bg-indigo-600': activeTab === 'workout'}">Workout Routine</a></li>
+            <li><a @click="activeTab = 'tips'; showMenu = false" class="block py-2 hover:bg-indigo-600 px-2 rounded" :class="{'bg-indigo-600': activeTab === 'tips'}">Budget Tips</a></li>
+            <li><a @click="activeTab = 'advice'; showMenu = false" class="block py-2 hover:bg-indigo-600 px-2 rounded" :class="{'bg-indigo-600': activeTab === 'advice'}">Additional Advice</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6 md:flex">
+      <!-- Desktop Navigation -->
+      <aside class="hidden md:block md:w-1/4 pr-6">
+        <nav class="bg-white rounded-lg shadow-md p-4 sticky top-20">
+          <h2 class="text-lg font-bold mb-4 text-indigo-700 border-b pb-2">Navigation</h2>
+          <ul class="space-y-2">
+            <li><a @click="activeTab = 'food'" class="block py-2 px-3 rounded cursor-pointer transition-colors" :class="activeTab === 'food' ? 'bg-indigo-100 text-indigo-700 font-medium' : 'hover:bg-gray-100'">High-Protein Foods</a></li>
+            <li><a @click="activeTab = 'meal'" class="block py-2 px-3 rounded cursor-pointer transition-colors" :class="activeTab === 'meal' ? 'bg-indigo-100 text-indigo-700 font-medium' : 'hover:bg-gray-100'">Meal Plan</a></li>
+            <li><a @click="activeTab = 'workout'" class="block py-2 px-3 rounded cursor-pointer transition-colors" :class="activeTab === 'workout' ? 'bg-indigo-100 text-indigo-700 font-medium' : 'hover:bg-gray-100'">Workout Routine</a></li>
+            <li><a @click="activeTab = 'tips'" class="block py-2 px-3 rounded cursor-pointer transition-colors" :class="activeTab === 'tips' ? 'bg-indigo-100 text-indigo-700 font-medium' : 'hover:bg-gray-100'">Budget Tips</a></li>
+            <li><a @click="activeTab = 'advice'" class="block py-2 px-3 rounded cursor-pointer transition-colors" :class="activeTab === 'advice' ? 'bg-indigo-100 text-indigo-700 font-medium' : 'hover:bg-gray-100'">Additional Advice</a></li>
+          </ul>
+          
+          <div class="mt-6 p-4 bg-indigo-50 rounded-lg">
+            <h3 class="font-medium text-indigo-700 mb-2">Protein Calculator</h3>
+            <div class="mb-2">
+              <label class="block text-sm text-gray-600">Your Weight (kg)</label>
+              <input type="number" x-model="bodyWeight" min="40" max="200" class="w-full p-2 border rounded focus:outline-none focus:ring focus:border-indigo-300">
+            </div>
+            <button @click="calculateProtein()" class="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition-colors">Calculate</button>
+            <div class="mt-3 text-center">
+              <p class="text-sm text-gray-600">You need approximately:</p>
+              <p class="text-xl font-bold text-indigo-700"><span x-text="proteinNeed"></span>g of protein daily</p>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Content Area -->
+      <section class="md:w-3/4">
+        <!-- Protein Calculator for Mobile -->
+        <div class="md:hidden mb-6">
+          <button @click="showProteinCalculator = !showProteinCalculator" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg flex justify-between items-center">
+            <span>Protein Calculator</span>
+            <i class="fas" :class="showProteinCalculator ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+          </button>
+          
+          <div x-show="showProteinCalculator" class="mt-2 p-4 bg-white rounded-lg shadow-md">
+            <div class="mb-2">
+              <label class="block text-sm text-gray-600">Your Weight (kg)</label>
+              <input type="number" x-model="bodyWeight" min="40" max="200" class="w-full p-2 border rounded focus:outline-none focus:ring focus:border-indigo-300">
+            </div>
+            <button @click="calculateProtein()" class="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition-colors">Calculate</button>
+            <div class="mt-3 text-center">
+              <p class="text-sm text-gray-600">You need approximately:</p>
+              <p class="text-xl font-bold text-indigo-700"><span x-text="proteinNeed"></span>g of protein daily</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Introduction Card -->
+        <div class="bg-white rounded-lg shadow-md p-5 mb-6">
+          <h2 class="text-2xl font-bold text-indigo-700 mb-3">Budget-Friendly Muscle Building Plan</h2>
+          <p class="text-gray-700 mb-3">It's great that you're committed to your fitness goals and that you're looking for practical and budget-friendly ways to build muscle, especially with the aim of pursuing a Strongman championship. Here's a comprehensive plan that incorporates affordable Indian vegetarian foods, a muscle-gaining workout routine, and tips on how to maximize your resources.</p>
+        </div>
+
+        <!-- High-Protein Foods -->
+        <div x-show="activeTab === 'food'" x-transition class="bg-white rounded-lg shadow-md p-5 mb-6">
+          <h2 class="text-xl font-bold text-indigo-700 mb-4 flex items-center">
+            <i class="fas fa-drumstick-bite mr-2"></i>
+            Affordable High-Protein Indian Foods
+          </h2>
+          <p class="text-gray-700 mb-4">Here are some Indian vegetarian foods that are rich in protein and can be included in your diet:</p>
+          
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white">
+              <thead>
+                <tr class="bg-indigo-50 text-indigo-700">
+                  <th class="py-2 px-4 border-b text-left">Food Item</th>
+                  <th class="py-2 px-4 border-b text-left">Protein (per 100g)</th>
+                  <th class="py-2 px-4 border-b text-left">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template x-for="(item, index) in foodItems" :key="index">
+                  <tr :class="index % 2 === 0 ? 'bg-white' : 'bg-gray-50'">
+                    <td class="py-2 px-4 border-b" x-text="item.name"></td>
+                    <td class="py-2 px-4 border-b font-medium" x-text="item.protein"></td>
+                    <td class="py-2 px-4 border-b text-gray-600" x-text="item.notes"></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Meal Plan -->
+        <div x-show="activeTab === 'meal'" x-transition class="bg-white rounded-lg shadow-md p-5 mb-6">
+          <h2 class="text-xl font-bold text-indigo-700 mb-4 flex items-center">
+            <i class="fas fa-utensils mr-2"></i>
+            Sample Daily Meal Plan
+          </h2>
+          <p class="text-gray-700 mb-4">Here's a budget-friendly meal plan with approximate protein content:</p>
+          
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white">
+              <thead>
+                <tr class="bg-indigo-50 text-indigo-700">
+                  <th class="py-2 px-4 border-b text-left">Meal Time</th>
+                  <th class="py-2 px-4 border-b text-left">Food Item(s)</th>
+                  <th class="py-2 px-4 border-b text-left">Protein (g)</th>
+                  <th class="py-2 px-4 border-b text-left">Calories</th>
+                  <th class="py-2 px-4 border-b text-left">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template x-for="(meal, index) in mealPlan" :key="index">
+                  <tr :class="index % 2 === 0 ? 'bg-white' : 'bg-gray-50'">
+                    <td class="py-2 px-4 border-b font-medium" x-text="meal.time"></td>
+                    <td class="py-2 px-4 border-b" x-text="meal.items"></td>
+                    <td class="py-2 px-4 border-b text-indigo-700 font-medium" x-text="meal.protein"></td>
+                    <td class="py-2 px-4 border-b" x-text="meal.calories"></td>
+                    <td class="py-2 px-4 border-b text-gray-600" x-text="meal.notes"></td>
+                  </tr>
+                </template>
+                <tr class="bg-indigo-50">
+                  <td class="py-2 px-4 border-b font-bold" colspan="2">Total Protein:</td>
+                  <td class="py-2 px-4 border-b font-bold text-indigo-700">112g</td>
+                  <td class="py-2 px-4 border-b" colspan="2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-4 text-gray-700">This meal plan focuses on natural sources of protein and includes affordable Indian foods.</p>
+        </div>
+
+        <!-- Workout Routine -->
+        <div x-show="activeTab === 'workout'" x-transition class="bg-white rounded-lg shadow-md p-5 mb-6">
+          <h2 class="text-xl font-bold text-indigo-700 mb-4 flex items-center">
+            <i class="fas fa-dumbbell mr-2"></i>
+            Strength Training Routine
+          </h2>
+          <p class="text-gray-700 mb-4">Since you don't have access to a gym, you can create your own home gym with basic materials like stones, bricks, or metal pipes. The focus is on compound movements, which are essential for building muscle mass and strength.</p>
+          
+          <h3 class="font-bold text-lg text-indigo-600 mb-2">Weekly Routine:</h3>
+          
+          <div class="space-y-6">
+            <template x-for="(day, dayIndex) in workoutSchedule" :key="dayIndex">
+              <div class="bg-indigo-50 p-4 rounded-lg">
+                <h4 class="font-bold text-indigo-700 mb-2" x-text="`${day.day}: ${day.title}`"></h4>
+                <div class="overflow-x-auto">
+                  <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                    <thead>
+                      <tr class="bg-indigo-100 text-indigo-700">
+                        <th class="py-2 px-4 text-left">Exercise</th>
+                        <th class="py-2 px-4 text-left">Sets x Reps</th>
+                        <th class="py-2 px-4 text-left">Equipment/Alternative</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <template x-for="(exercise, exIndex) in day.exercises" :key="exIndex">
+                        <tr :class="exIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'">
+                          <td class="py-2 px-4 border-t" x-text="exercise.name"></td>
+                          <td class="py-2 px-4 border-t" x-text="exercise.sets ? `${exercise.sets} x ${exercise.reps}` : exercise.reps"></td>
+                          <td class="py-2 px-4 border-t text-gray-600" x-text="exercise.equipment"></td>
+                        </tr>
+                      </template>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- Budget Tips -->
+        <div x-show="activeTab === 'tips'" x-transition class="bg-white rounded-lg shadow-md p-5 mb-6">
+          <h2 class="text-xl font-bold text-indigo-700 mb-4 flex items-center">
+            <i class="fas fa-piggy-bank mr-2"></i>
+            Budget-Friendly Tips for Muscle Growth
+          </h2>
+          
+          <ul class="space-y-3">
+            <template x-for="(tip, index) in tips" :key="index">
+              <li class="flex">
+                <span class="text-indigo-500 mr-2"><i class="fas fa-check-circle"></i></span>
+                <span x-text="tip" class="text-gray-700"></span>
+              </li>
+            </template>
+          </ul>
+          
+          <div class="mt-6 bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-indigo-700 mb-2">Tracking Protein Intake</h3>
+            <p class="text-gray-700 mb-2">To calculate your protein needs, aim for 1.6–2.2g of protein per kg of body weight for muscle growth. Given your goal to reach 92 kg:</p>
+            <p class="font-medium mb-3">Protein intake goal = 92 kg * 2g = 184g of protein per day.</p>
+            
+            <p class="text-gray-700 mb-2">You can track your intake by:</p>
+            <ul class="list-disc list-inside text-gray-700 space-y-1 ml-2">
+              <li>Keeping a food diary or using a nutrition tracker app.</li>
+              <li>Measuring portion sizes (for example, a cup of dal = about 9g protein).</li>
+              <li>Checking nutritional labels on products like paneer and milk.</li>
+            </ul>
+          </div>
+          
+          <div class="mt-6 bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-indigo-700 mb-2">Cost-saving Alternatives for Supplements</h3>
+            <p class="font-medium text-gray-800 mb-1">Whey Protein Alternatives:</p>
+            <p class="text-gray-700 mb-3">Make your own protein shakes with ingredients like milk, yogurt, eggs, and peanut butter.</p>
+            
+            <p class="font-medium text-gray-800 mb-1">Creatine Alternatives:</p>
+            <p class="text-gray-700">Creatine is found in meats, but you can support muscle growth with your regular diet rich in protein and carbs. Regular exercise and proper recovery will yield results over time.</p>
+          </div>
+        </div>
+
+        <!-- Additional Advice -->
+        <div x-show="activeTab === 'advice'" x-transition class="bg-white rounded-lg shadow-md p-5 mb-6">
+          <h2 class="text-xl font-bold text-indigo-700 mb-4 flex items-center">
+            <i class="fas fa-lightbulb mr-2"></i>
+            Additional Advice
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <template x-for="(advice, index) in additionalAdvice" :key="index">
+              <div class="bg-indigo-50 p-4 rounded-lg">
+                <p class="text-gray-700" x-text="advice"></p>
+              </div>
+            </template>
+          </div>
+          
+          <div class="mt-6 p-5 bg-indigo-600 text-white rounded-lg">
+            <h3 class="font-bold text-xl mb-3">Final Thoughts</h3>
+            <p class="mb-4">This plan should give you a solid foundation for building muscle and preparing for a Strongman challenge without breaking the bank. Stay consistent with your diet and workouts, and you'll see progress!</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-800 text-white py-6">
+      <div class="container mx-auto px-4 text-center">
+        <p class="mb-2">Affordable Muscle Building</p>
+        <div class="flex justify-center space-x-4 mt-4">
+          <a href="#" class="text-white hover:text-indigo-200 transition-colors">
+            <i class="fab fa-facebook-f text-xl"></i>
+          </a>
+          <a href="#" class="text-white hover:text-indigo-200 transition-colors">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="#" class="text-white hover:text-indigo-200 transition-colors">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="text-white hover:text-indigo-200 transition-colors">
+            <i class="fab fa-youtube text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
