@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenithBank Dashboard</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b; /* slate-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569; /* slate-600 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; /* slate-500 */
+        }
+
+        /* NEW: Credit card flip animation */
+        .card-container {
+            perspective: 1000px;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        /* Add .flipped class on click to trigger the flip */
+        .card-container.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            border-radius: 1.5rem; /* 2xl */
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300">
+
+    <div class="flex h-screen">
+        <aside class="w-64 flex-shrink-0 bg-slate-800 p-6 hidden md:flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-3 mb-10">
+                    <svg class="h-8 w-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 10v-1m0 0c-1.657 0-3-.895-3-2s1.343-2 3-2 3-.895 3-2-1.343-2-3-2m0 0c-1.11 0-2.08-.402-2.599-1M12 4V3m0 18v-1" />
+                    </svg>
+                    <span class="text-2xl font-bold text-white">ZenithBank</span>
+                </div>
+                <nav class="space-y-2">
+                    <a href="#" class="flex items-center gap-3 bg-indigo-500/20 text-indigo-300 py-3 px-4 rounded-lg transition-all hover:bg-indigo-500/30">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                        <span>Dashboard</span>
+                    </a>
+                     <a href="#" class="flex items-center gap-3 py-3 px-4 rounded-lg transition-all hover:bg-slate-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Accounts</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-3 py-3 px-4 rounded-lg transition-all hover:bg-slate-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                        <span>Transfers</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="space-y-2">
+                <a href="#" class="flex items-center gap-3 py-3 px-4 rounded-lg transition-all hover:bg-slate-700">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <span>Settings</span>
+                </a>
+                 <a href="#" class="flex items-center gap-3 py-3 px-4 rounded-lg transition-all hover:bg-slate-700">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+                    <span>Log Out</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-6 lg:p-10 overflow-y-auto">
+            <header class="flex items-center justify-between mb-10">
+                <div>
+                    <h1 id="greeting" class="text-3xl font-bold text-white">Good Morning, Kumar 👋</h1>
+                    <p id="date" class="text-slate-400 text-lg">Today is August 31, 2025</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="p-2 rounded-full bg-slate-800/50 hover:bg-slate-800 transition-colors">
+                        <svg class="h-6 w-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </button>
+                     <button class="p-2 rounded-full bg-slate-800/50 hover:bg-slate-800 transition-colors relative">
+                        <svg class="h-6 w-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                        <span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-indigo-500 ring-2 ring-slate-900"></span>
+                    </button>
+                    <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="User Avatar" class="w-12 h-12 rounded-full border-2 border-slate-700">
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg flex items-center space-x-4">
+                            <div class="p-3 bg-indigo-500/20 rounded-full">
+                                <svg class="h-6 w-6 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-slate-400">Total Balance</p>
+                                <p class="text-2xl font-bold text-white">$25,480.00</p>
+                            </div>
+                        </div>
+                         <div class="bg-slate-800 p-6 rounded-2xl shadow-lg flex items-center space-x-4">
+                            <div class="p-3 bg-green-500/20 rounded-full">
+                               <svg class="h-6 w-6 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-slate-400">Income</p>
+                                <p class="text-2xl font-bold text-white">$5,300.50</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg flex items-center space-x-4">
+                            <div class="p-3 bg-red-500/20 rounded-full">
+                                <svg class="h-6 w-6 text-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-slate-400">Expenses</p>
+                                <p class="text-2xl font-bold text-white">$2,150.25</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-lg flex items-center space-x-4">
+                            <div class="p-3 bg-yellow-500/20 rounded-full">
+                                <svg class="h-6 w-6 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-slate-400">Savings</p>
+                                <p class="text-2xl font-bold text-white">$10,200.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                        <h2 class="text-xl font-bold text-white mb-4">Spending Overview</h2>
+                        <div class="h-80">
+                            <canvas id="spendingChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                        <h2 class="text-xl font-bold text-white mb-4">Recent Transactions</h2>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr class="text-slate-400">
+                                        <th class="pb-4 font-semibold">Recipient</th>
+                                        <th class="pb-4 font-semibold">Date</th>
+                                        <th class="pb-4 font-semibold">Amount</th>
+                                        <th class="pb-4 font-semibold">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                        <h2 class="text-xl font-bold text-white mb-4">My Card</h2>
+                        <div class="card-container h-56 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                            <div class="card-inner">
+                                <div class="card-front bg-gradient-to-br from-indigo-500 to-purple-600 p-6 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center">
+                                            <p class="text-white font-semibold">Zenith Platinum</p>
+                                            <svg class="w-12 h-auto text-white opacity-70" fill="none" viewBox="0 0 48 48"><rect width="48" height="48" rx="6" fill="#1C65E3"></rect><path d="M30 16H18C16.8954 16 16 16.8954 16 18V30C16 31.1046 16.8954 32 18 32H30C31.1046 32 32 31.1046 32 30V18C32 16.8954 31.1046 16 30 16Z" fill="#fff"></path><path d="M24 19V29" stroke="#1C65E3" stroke-width="2" stroke-linecap="round"></path><path d="M20 22V26" stroke="#1C65E3" stroke-width="2" stroke-linecap="round"></path><path d="M28 22V26" stroke="#1C65E3" stroke-width="2" stroke-linecap="round"></path></svg>
+                                        </div>
+                                        <p class="text-white text-2xl font-mono tracking-wider mt-4">**** **** **** 1234</p>
+                                    </div>
+                                    <div class="flex justify-between items-end">
+                                        <div>
+                                            <p class="text-white text-xs opacity-70">CARD HOLDER</p>
+                                            <p class="text-white font-medium">Kumar Doe</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-white text-xs opacity-70">EXPIRES</p>
+                                            <p class="text-white font-medium">08/28</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back bg-gradient-to-br from-slate-700 to-slate-800 p-6 flex flex-col justify-between">
+                                    <div class="w-full h-10 bg-black mt-4"></div>
+                                    <div class="text-right">
+                                        <p class="text-white text-xs mb-1 opacity-70">CVV</p>
+                                        <div class="bg-white p-2 w-24 text-black text-center rounded">
+                                            <p class="font-mono tracking-widest">123</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-slate-400 text-center">This card is for personal use only. Unauthorized use is prohibited.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                        <h2 class="text-xl font-bold text-white mb-4">Quick Transfer</h2>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <img src="https://i.pravatar.cc/150?u=a042581f4e29026704e" alt="Avatar" class="w-12 h-12 rounded-full">
+                            <img src="https://i.pravatar.cc/150?u=a042581f4e29026704f" alt="Avatar" class="w-12 h-12 rounded-full">
+                            <img src="https://i.pravatar.cc/150?u=a042581f4e29026704a" alt="Avatar" class="w-12 h-12 rounded-full">
+                            <button class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center text-slate-400 hover:bg-slate-600 transition">
+                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                            </button>
+                        </div>
+                        <form>
+                            <div class="mb-4">
+                                <label for="amount-transfer" class="text-slate-400 text-sm">Amount</label>
+                                <input type="text" id="amount-transfer" class="w-full p-3 bg-slate-700 border border-slate-600 rounded-lg mt-1 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="$0.00">
+                            </div>
+                            <button class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300">
+                                Send Money
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DYNAMIC GREETING AND DATE ---
+            const setGreetingAndDate = () => {
+                const greetingEl = document.getElementById('greeting');
+                const dateEl = document.getElementById('date');
+                
+                const hour = new Date().getHours();
+                let greeting;
+                if (hour < 12) {
+                    greeting = 'Good Morning, Kumar 👋';
+                } else if (hour < 18) {
+                    greeting = 'Good Afternoon, Kumar 👋';
+                } else {
+                    greeting = 'Good Evening, Kumar 👋';
+                }
+                greetingEl.textContent = greeting;
+
+                const today = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                dateEl.textContent = `Today is ${today.toLocaleDateString('en-US', options)}`;
+            };
+
+            // --- RENDER DOUGHNUT CHART ---
+            const initializeChart = () => {
+                const ctx = document.getElementById('spendingChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Groceries', 'Entertainment', 'Bills', 'Transport', 'Shopping'],
+                        datasets: [{
+                            label: 'Spending',
+                            data: [450, 300, 550, 200, 400],
+                            backgroundColor: [
+                                'rgba(99, 102, 241, 0.8)',   // Indigo
+                                'rgba(59, 130, 246, 0.8)',  // Blue
+                                'rgba(239, 68, 68, 0.8)',   // Red
+                                'rgba(245, 158, 11, 0.8)',  // Amber
+                                'rgba(16, 185, 129, 0.8)'   // Emerald
+                            ],
+                            borderColor: '#1e293b', // slate-800 for a "gap" effect
+                            borderWidth: 4,
+                            hoverOffset: 15
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20,
+                                    color: '#94a3b8', // slate-400
+                                    font: {
+                                        size: 14,
+                                        family: "'Inter', sans-serif"
+                                    }
+                                }
+                            }
+                        },
+                        cutout: '70%'
+                    }
+                });
+            };
+
+            // --- RENDER TRANSACTIONS TABLE ---
+            const renderTransactions = () => {
+                const transactions = [
+                    { recipient: 'Netflix Subscription', date: 'Aug 30, 2025', amount: -15.99, status: 'Completed', logo: 'https://img.icons8.com/color/48/000000/netflix.png' },
+                    { recipient: 'Amazon Purchase', date: 'Aug 29, 2025', amount: -89.50, status: 'Completed', logo: 'https://img.icons8.com/color/48/000000/amazon.png' },
+                    { recipient: 'Salary Deposit', date: 'Aug 28, 2025', amount: 2500.00, status: 'Completed', logo: 'https://img.icons8.com/fluency/48/000000/initiate-money-transfer.png' },
+                    { recipient: 'Starbucks', date: 'Aug 27, 2025', amount: -6.75, status: 'Completed', logo: 'https://img.icons8.com/color/48/000000/starbucks.png' },
+                    { recipient: 'Utility Bill', date: 'Aug 26, 2025', amount: -120.00, status: 'Pending', logo: 'https://img.icons8.com/color/48/000000/light-on--v1.png' },
+                ];
+
+                const transactionTableBody = document.querySelector('table tbody');
+                transactions.forEach(tx => {
+                    const isIncome = tx.amount > 0;
+                    const amountClass = isIncome ? 'text-green-400' : 'text-slate-300';
+                    const statusClass = tx.status === 'Completed' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400';
+
+                    const row = `
+                        <tr class="border-b border-slate-700 last:border-b-0 hover:bg-slate-700/50">
+                            <td class="py-4 px-2 flex items-center">
+                                <img src="${tx.logo}" alt="${tx.recipient}" class="w-8 h-8 rounded-full mr-4 bg-white p-1">
+                                <span class="font-semibold text-white">${tx.recipient}</span>
+                            </td>
+                            <td class="py-4 px-2 text-slate-400">${tx.date}</td>
+                            <td class="py-4 px-2 font-bold ${amountClass}">
+                                ${isIncome ? '+' : '-'}$${Math.abs(tx.amount).toFixed(2)}
+                            </td>
+                            <td class="py-4 px-2">
+                                <span class="px-3 py-1 text-sm font-semibold rounded-full ${statusClass}">
+                                    ${tx.status}
+                                </span>
+                            </td>
+                        </tr>
+                    `;
+                    transactionTableBody.innerHTML += row;
+                });
+            };
+
+            // --- INITIALIZE DASHBOARD ---
+            setGreetingAndDate();
+            renderTransactions();
+            initializeChart();
+        });
+    </script>
+</body>
+</html>

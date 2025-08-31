@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "title": "Syntax Checker",
+    "desc": "A real-time multi-language code runner and validator featuring an editor where users can enter code snippets, execute them using the Piston API, and instantly view results and history. Supports JavaScript, Java, C/C++, Python, Ruby, and Go with syntax highlighting and code formatting.",
+    "client": "Personal Project",
+    "category": "Web Development",
+    "date": "August 2025",
+    "link": "https://kumaraswamys28.github.io/project/syntax-checker/html.html",
+    "url": "assets/syntax.png",
+    "alt": "Screenshot of the Syntax Checker code editor and results panel"
+  },
+  {
+    "id": 2,
+    "title": "Fitness Tracking App",
+    "desc": "A cross-platform mobile application built with React Native that helps users track their workouts, nutrition, and progress. Features include customizable workout plans, progress charts, and social sharing.",
+    "client": "FitLife",
+    "category": "App Development",
+    "date": "February 2025",
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "title": "Banking Dashboard UI",
+    "desc": "A modern and intuitive dashboard interface for a banking application. Designed with a focus on user experience and accessibility, using Figma and implemented with React and Tailwind CSS.",
+    "client": "Personal Project",
+    "category": "UI/UX Design",
+    "date": "March 2025",
+    "link": "pages/bank.html",
+    "url": "assets/banks.png",
+    "alt": "Preview of the Banking Dashboard UI with various banking features"
+  },
+  {
+    "id": 4,
+    "title": "Journey Blogging Platform",
+    "desc": "A Medium-inspired blogging platform that allows users to publish, read, and explore blogs across categories like programming, film-making, travel, cooking, and more. Features include user authentication, trending stories, search, and category filtering. Built as a full-stack project and currently 85% complete.",
+    "client": "Personal Project",
+    "category": "Web Development",
+    "date": "August 2025",
+    "link": "https://journey-blo.netlify.app/",
+    "url": "assets/blog.png",
+    "alt": "Preview of the Journey Blogging Platform homepage with trending blog cards"
+  },
+  {
+    "id": 5,
+    "title": "Food Delivery App",
+    "desc": "A food delivery mobile application with real-time order tracking, restaurant discovery, and payment processing. Built with Flutter and Firebase for iOS and Android platforms.",
+    "client": "QuickBite",
+    "category": "App Development",
+    "date": "November 2024",
+    "link": "#"
+  },
+  {
+    "id": 6,
+    "title": "Travel Platform UI",
+    "desc": "A visually stunning UI design for a travel booking platform, featuring destination discovery, itinerary planning, and booking management. Designed with Adobe XD and implemented with Angular.",
+    "client": "Personal Project",
+    "category": "UI/UX Design",
+    "date": "October 2024",
+    "link": "pages/test.html",
+    "url": "assets/travel.png",
+    "alt": "Preview of the Travel Platform UI design with destination cards"
+  },
+  {
+    "id": 7,
+    "title": "Journey Blogging Platform",
+    "desc": "A Medium-inspired blogging platform that allows users to publish, read, and explore blogs across categories like programming, film-making, travel, cooking, and more. Features include user authentication, trending stories, search, and category filtering. Built as a full-stack project and currently 85% complete.",
+    "client": "Personal Project",
+    "category": "Web Development",
+    "date": "August 2025",
+    "link": "https://journey-blo.netlify.app/",
+    "url": "assets/blog.png",
+    "alt": "Preview of the Journey Blogging Platform homepage with trending blog cards"
+  },
+  {
+    "id": 8,
+    "title": "Food Delivery App",
+    "desc": "A food delivery mobile application with real-time order tracking, restaurant discovery, and payment processing. Built with Flutter and Firebase for iOS and Android platforms.",
+    "client": "QuickBite",
+    "category": "App Development",
+    "date": "November 2024",
+    "link": "#"
+  },
+  {
+    "id": 9,
+    "title": "Travel Platform UI",
+    "desc": "A visually stunning UI design for a travel booking platform, featuring destination discovery, itinerary planning, and booking management. Designed with Adobe XD and implemented with Angular.",
+    "client": "TravelEase",
+    "category": "UI/UX Design",
+    "date": "October 2024",
+    "link": "#"
+  }
+]

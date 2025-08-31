@@ -1,0 +1,226 @@
+/* Hide scrollbar but keep scrolling functionality */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari and Opera */
+}
+
+/* Animated hover effects for project cards */
+.project-card {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #a200ff, #ff4b4b);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
+}
+
+.project-info {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animated skill tags */
+.skill-tag {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(162, 0, 255, 0.3);
+    transition: height 0.3s ease;
+    z-index: -1;
+}
+
+.skill-tag:hover::before {
+    height: 100%;
+}
+
+/* Typewriter effect for main heading */
+.typewriter h1 {
+    overflow: hidden;
+    border-right: 3px solid #a200ff;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    display: inline-block;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #a200ff }
+}
+
+/* Floating animation for highlight cards */
+.highlight-card {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.highlight-card:nth-child(1) { animation-delay: 0s; }
+.highlight-card:nth-child(2) { animation-delay: 0.5s; }
+.highlight-card:nth-child(3) { animation-delay: 1s; }
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Pulse animation for CTA buttons */
+.primary-button {
+    position: relative;
+}
+
+.primary-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #a200ff, #ff4b4b);
+    opacity: 0.8;
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* Parallax scrolling effect for background */
+.parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    transform: translateZ(0);
+    background-attachment: fixed;
+}
+
+/* Interactive navigation highlight */
+nav ul.menu li {
+    position: relative;
+}
+
+nav ul.menu li::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #a200ff, transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+nav ul.menu li:hover::before {
+    transform: scaleX(1);
+}
+
+/* Animated form inputs */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(162, 0, 255, 0.2);
+}
+
+/* Progress bar indicator for scrolling */
+.scroll-progress {
+    position: fixed;
+    top: 5px;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(to right, #a200ff, #ff4b4b);
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.2s ease;
+}
+
+/* Dark/light mode toggle */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle:hover {
+    transform: rotate(45deg);
+    background: #a200ff;
+}
+
+.theme-toggle i {
+    font-size: 20px;
+    color: white;
+}
+
+/* Tilt effect for testimonial cards */
+.testimonial-card {
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.testimonial-card:hover {
+    transform: rotateY(5deg) rotateX(5deg);
+}

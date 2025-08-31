@@ -1,0 +1,523 @@
+/* Additional styles for enhanced dynamicity */
+
+/* Animation classes */
+.visible {
+    animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typing cursor effect */
+.content .title::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Form validation styling */
+.error-message {
+    color: #ff4757;
+    font-size: 14px;
+    margin-top: 5px;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Success message styling */
+.success-message {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.success-message i {
+    font-size: 60px;
+    color: #2ecc71;
+    margin-bottom: 20px;
+}
+
+/* Theme toggle styles */
+.theme-toggle {
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    background: var(--primary-color);
+}
+
+/* Light theme */
+body.light-theme {
+    --bg-color: #f0f4f8;
+    --text-color: #333;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme header {
+    background: rgba(240, 244, 248, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .mobile-menu-toggle i,
+body.light-theme nav ul.menu li a {
+    color: #333;
+}
+
+body.light-theme nav ul.menu li a.active,
+body.light-theme nav ul.menu li a:hover {
+    color: var(--primary-color);
+}
+
+body.light-theme .skill-tag {
+    background: rgba(162, 0, 255, 0.1);
+    color: #333;
+}
+
+/* Enhanced hover effects */
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(162, 0, 255, 0.4);
+}
+
+.social-icon-contact:hover {
+    transform: scale(1.1);
+}
+
+/* Skill tag pulse effect */
+.skill-tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tag::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.skill-tag:hover::after {
+    animation: pulse 0.8s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Page transition effects */
+.transition-fade {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.transition-fade.show {
+    opacity: 1;
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+    .theme-toggle {
+        margin-right: 60px;
+    }
+    
+    /* Mobile menu animations */
+    nav ul.menu, nav ul.social {
+        transition: all 0.3s ease;
+    }
+}
+
+/* Dynamic styles to enhance the portfolio */
+
+/* Canvas for particle background */
+#particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Typing effect cursor */
+.cursor {
+    display: inline-block;
+    margin-left: 3px;
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+.cursor.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Mobile menu animations */
+nav ul.menu, nav ul.social {
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul.menu.open {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.95);
+    padding: 20px 0;
+    z-index: 99;
+    animation: slideDown 0.5s forwards;
+}
+
+nav ul.social.open {
+    display: flex;
+    position: absolute;
+    top: 250px;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.95);
+    padding: 20px 0;
+    z-index: 99;
+    animation: fadeIn 0.5s forwards;
+}
+
+nav ul.menu.open li {
+    opacity: 0;
+    animation: fadeInSlideRight 0.5s forwards;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInSlideRight {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* 3D Tilt effect for project cards */
+.project-card {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Skill progress bars */
+.skill-list.progress-list {
+    display: block;
+    margin-top: 15px;
+}
+
+.skill-progress {
+    margin-bottom: 15px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.percentage {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(to right, #a200ff, #f20089);
+    border-radius: 4px;
+    width: 0;
+    transition: width 0.8s cubic-bezier(0.1, 0.5, 0.5, 1);
+}
+
+/* Animated counter stats */
+.stats-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    padding: 30px 20px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+}
+
+.stat-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.stat-counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Floating navigation */
+.floating-nav {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    gap: 15px;
+}
+
+.nav-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    display: block;
+    position: relative;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.nav-dot:hover, .nav-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.3);
+}
+
+.nav-dot .tooltip {
+    position: absolute;
+    right: 30px;
+    top: -5px;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.nav-dot:hover .tooltip {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Enhanced contact form with floating labels */
+.input-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-wrapper label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s;
+    pointer-events: none;
+    margin: 0;
+}
+
+.input-wrapper.focused label {
+    top: -20px;
+    left: 0;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.input-wrapper input, 
+.input-wrapper textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.input-wrapper input:focus, 
+.input-wrapper textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(162, 0, 255, 0.3);
+}
+
+.input-wrapper input.error,
+.input-wrapper textarea.error {
+    border-color: #ff4757;
+    box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.3);
+}
+
+.error-message {
+    color: #ff4757;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.input-wrapper.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.contact-form form.submitted {
+    transition: all 0.3s;
+}
+
+/* Success message checkmark animation */
+.success-message {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.checkmark {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+}
+
+.checkmark-circle {
+    stroke: #a200ff;
+    stroke-width: 2;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% { stroke-dashoffset: 0; }
+}
+
+/* Theme toggle */
+.theme-toggle {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.toggle-track {
+    width: 50px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    position: relative;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.toggle-thumb {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    left: 2px;
+    transition: transform 0.3s;
+}
+

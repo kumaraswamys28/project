@@ -1,57 +1,1025 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Webpage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Add this line -->
-
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <script src="gsap.min.js"></script>
+    <script src="ScrollTrigger.min.js"></script>
+    <script src="particles.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    
 </head>
-
 <body>
-    <div id="loading">Loading...</div>
-    <header>
-        <nav>
-            <img src="hi.png" alt="company logo" />
-            <ul class="menu">
-                <li><a href="#">HOME</a></li>
-                <li><a href="something.html">CONTACT</a></li>
-                <li><a href="projects.html">RESUME</a></li>
-                
-            </ul>
-            <ul class="social">
-                <li aria-label="Twitter"><i class="fab fa-twitter"></i></li>
-                <li aria-label="GitHub"><i class="fab fa-github"></i></li>
-                <li aria-label="LinkedIn"><i class="fab fa-linkedin"></i></li>
-                <li aria-label="Instagram"><i class="fab fa-instagram"></i></li>
-            </ul>
-        </nav>
-        <span></span>
-    </header>
+    <!-- Background Gradient -->
+    <div class="bg-gradient">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+        
+    </div>
 
- 
-    <section>
-        <div class="main" id="home">
-            <div class="imgdiv"><img  class="img" src="pro.jpg" alt="profile" />
-            </div>
+    <!-- Navigation -->
+    <nav id="navbar">
+        
+        <div class="logo">DevFolio</div>
+        
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <!-- <a href="#testimonials">Testimonials</a> -->
+            <a href="#contact">Contact</a><br>
+            
 
-            <div class="content">
-                <h1>Hi, I am kumar.</h1>
-                <p>Some additional text can go here.</p>
-                <!-- Optional -->
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+    </nav>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <!-- <li><a href="#testimonials">Testimonials</a></li> -->
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div id="particles-js"></div>
+        <div class="container hero-content">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Hello, I'm <span class="typing-text">     </span></h1>
+                    <p>A passionate Full Stack Developer specializing in building exceptional digital experiences. Currently, I'm focused on building responsive web applications.</p><span id="rinbow"></span>
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn btn-primary">Hire Me</a>
+                        <a href="#portfolio" class="btn btn-outline">View Work</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="avatar-container">
+                        <img src="pro.jpg" alt="Developer"  class="avatar">
+                    </div>
+                    <div class="floating-shape shape-1">
+                        <!-- <img src="pro.jpg" style="border-radius: 50%; width: 400px;
+    height: 400px;" > -->
+                        <!--  -->
+                    </div>
+                    <div class="floating-shape shape-2" >
+                        
+                    </div>
+                    <div class="floating-shape shape-3" >
+                        <i class="fab fa-react"></i><br>
+                        <i class="fas fa-code"></i><br>
+                        <i class="fab fa-node-js"></i>
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="floating-shape shape-4" >
+                        
+                    </div>
+                    <div class="floating-shape shape-5" >
+                        
+                    </div>
+                </div>
             </div>
         </div>
-
+        <div class="scroll-down">
+            <div class="mouse">
+                <span class="wheel"></span>
+            </div>
+            <span>Scroll Down</span>
+        </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title fade-up">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image fade-up">
+                    <div class="about-img-container">
+                        <img src="pro.jpg" alt="About Me" class="about-img">
+                        <!-- <div class="experience-card">
+                            <h3>5+</h3>
+                            <p>Years of Experience</p>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="about-text fade-up">
+                    <p>I'm a Full Stack Web Developer with a passion for building digital products that improve everyday experience for people. I specialize in creating interactive websites and web applications using modern technologies.</p>
+                    <p>I am passionate about my work and always eager to connect with other creatives. While I enjoy all aspects of my job, I believe my strongest skills are creative problem-solving and maintaining a user-centered focus in all my projects.</p>
+                    <h3>My Skills</h3>
+                    <div class="skills">
+                        <div class="skill">HTML5</div>
+                        <div class="skill">CSS3</div>
+                        <div class="skill">JavaScript</div>
+                        <div class="skill">React</div>
+                        <div class="skill">Node.js</div>
+                        <div class="skill">Express</div>
+                        <div class="skill">MongoDB</div>
+                        <div class="skill">Flutter</div>
+                        <div class="skill">Java</div>
+                        <!-- <div class="skill">Django</div> -->
+                        <div class="skill">Git</div>
+                        <div class="skill">UI/UX Design</div>
+                    </div>
+
+                    <div class="skill-progress">
+                        <div class="skill-label">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="90"></div>
+                        </div>
+
+                        <div class="skill-label">
+                            <span class="skill-name">React </span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85"></div>
+                        </div>
+
+                        <div class="skill-label">
+                            <span class="skill-name">Node.js & Express</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="80"></div>
+                        </div>
+
+                        <div class="skill-label">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="75"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title fade-up">
+                <h2>My Services</h2>
+                <p>Here are the services I offer to help businesses and individuals achieve their digital goals</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>I build modern and responsive websites using the latest technologies, ensuring they are optimized for all devices.</p>
+                    <a href="#portfolio">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Development</h3>
+                    <p>I develop cross-platform mobile applications that provide seamless user experiences across all devices.</p>
+                    <a href="#portfolio">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>I create beautiful and intuitive user interfaces that enhance user engagement and satisfaction.</p>
+                    <a href="#portfolio">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>I build robust server-side applications and APIs that power your web and mobile applications.</p>
+                    <a href="#portfolio">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimization</h3>
+                    <p>I optimize your websites to rank higher in search engines and drive more organic traffic.</p>
+                    <a href="#portfolio">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Maintenance & Support</h3>
+                    <p>I provide ongoing maintenance and support to ensure your digital products remain up-to-date and secure.</p>
+                    <a href="#portfolio">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title fade-up">
+                <h2>My Projects</h2>
+                <p>Here you will find some of the personal and client projects that I created with each project containing its own case study</p>
+            </div>
+            <div class="portfolio-categories fade-up">
+                <button class="category-btn active" data-filter="all">All</button>
+                <button class="category-btn" data-filter="web">Web Development</button>
+                <!-- <button class="category-btn" data-filter="app">App Development</button> -->
+                <button class="category-btn" data-filter="design">UI/UX Design</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-up" data-category="web" data-id="1">
+                    <img src="assets/syntax.png" alt="Project 1" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Syntax Checker</h3>
+                        <p>Web Development</p>
+                        <div class="portfolio-btns">
+                            <a href="#portfolio" class="portfolio-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="portfolio-item fade-up" data-category="app" data-id="2">
+                    <img src="/api/placeholder/400/250" alt="Project 2" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Fitness Tracking App</h3>
+                        <p>App Development</p>
+                        <div class="portfolio-btns">
+                            <a href="#portfolio" class="portfolio-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                          
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="portfolio-item fade-up" data-category="design" data-id="3">
+                    <img src="/assets/bank.png" alt="Project 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Banking Dashboard UI</h3>
+                        <p>UI/UX Design</p>
+                        <div class="portfolio-btns">
+                            <a href="#portfolio" class="portfolio-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                         
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item fade-up" data-category="web" data-id="4">
+                    <img src="/assets/blog.png" alt="Project 4" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3> Journey Blogging Platform</h3>
+                        <p>Web Development</p>
+                        <div class="portfolio-btns">
+                            <a href="#portfolio" class="portfolio-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                         
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="portfolio-item fade-up" data-category="app" data-id="5">
+                    <img src="/api/placeholder/400/250" alt="Project 5" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Food Delivery App</h3>
+                        <p>App Development</p>
+                        <div class="portfolio-btns">
+                            <a href="#portfolio" class="portfolio-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="portfolio-item fade-up" data-category="design" data-id="6">
+                    <img src="/assets/travel.png" alt="Project 6" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Travel Platform UI</h3>
+                        <p>UI/UX Design</p>
+                        <div class="portfolio-btns">
+                            <a href="#portfolio" class="portfolio-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title fade-up">
+                <h2>Client Testimonials</h2>
+                <p>Here's what my clients have to say about working with me</p>
+            </div>
+            <div class="testimonial-slider fade-up">
+                <div class="testimonial-wrapper">
+                    <div class="testimonial-card">
+                        <img src="/api/placeholder/80/80" alt="Client 1" class="client-avatar">
+                        <div class="client-rating">
+                            ★★★★★
+                        </div>
+                        <p class="client-review">"Working with this developer was a pleasure. They delivered a high-quality website that exceeded our expectations and helped our business grow significantly. The attention to detail and responsiveness were outstanding."</p>
+                        <div class="client-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-wrapper">
+                    <div class="testimonial-card">
+                        <img src="/api/placeholder/80/80" alt="Client 2" class="client-avatar">
+                        <div class="client-rating">
+                            ★★★★★
+                        </div>
+                        <p class="client-review">"The mobile app developed for our company has been a game-changer. The developer understood our vision perfectly and implemented features that resonated well with our users. Highly recommended!"</p>
+                        <div class="client-info">
+                            <h4>Mark Williams</h4>
+                            <p>Founder, FitLife</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-wrapper">
+                    <div class="testimonial-card">
+                        <img src="/api/placeholder/80/80" alt="Client 3" class="client-avatar">
+                        <div class="client-rating">
+                            ★★★★★
+                        </div>
+                        <p class="client-review">"I was impressed by the developer's ability to translate our complex requirements into a user-friendly interface. The project was delivered on time and the ongoing support has been exceptional."</p>
+                        <div class="client-info">
+                            <h4>Emily Davis</h4>
+                            <p>Marketing Director, CloudSoft</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section> -->
+
+   <!-- Contact Section -->
+<!-- <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title fade-up">
+                <h2>Get In Touch</h2>
+                <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect</p>
+            </div>
+
+
+          
+
+            <div class="contact-grid ">
+                <div class="contact-info fade-up">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="contact-item-info">
+                            <h4>Phone</h4>
+                            <p>+91 6362937012</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="contact-item-info">
+                            <h4>Email</h4>
+                            <a href="mailto:john.doe@example.com">john.doe@example.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div class="contact-item-info">
+                            <h4>Location</h4>
+                            <p>San Francisco, CA</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <div class="contact-item-info">
+                            <h4>Website</h4>
+                            <a href="https://www.example.com">www.example.com</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="contact-form fade-up">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+<!-- <section class="contact" id="contact">
+    <div class="container">
+        <div class="section-title fade-up">
+            <h2>Get In Touch</h2>
+            <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect</p>
+        </div>
+
+        <div class="contact-form fade-up">
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+
+
+                <input type="hidden" name="access_key" value="964dc66b-f6a0-4306-87f3-325b9d540842">
+
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" class="form-control" id="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+
+            </form>
+        </div>
+    </div>
+</section> -->
+
+
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-title fade-up">
+            <h2>Get In Touch</h2>
+            <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect</p>
+        </div>
+
+        <div class="contact-form fade-up">
+            <form action="https://api.web3forms.com/submit" method="POST">
+
+                <input type="hidden" name="access_key" value="964dc66b-f6a0-4306-87f3-325b9d540842">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="message" id="message" placeholder="Your Message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+    
+
+    <!-- Portfolio Modal -->
+    <div class="portfolio-modal" id="portfolioModal">
+        <div class="modal-content">
+            <div class="modal-close" id="modalClose">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </div>
+            <img src="/api/placeholder/900/400" alt="Project" class="modal-image" id="modalImage">
+            <div class="modal-details">
+                <h3 id="modalTitle">Project Title</h3>
+                <p id="modalDesc">Project description goes here. This will show details about the project, technologies used, and the challenges faced during development.</p>
+                <div class="project-info">
+                    <div class="project-info-item">
+                        <h4>Client</h4>
+                        <p id="modalClient">Company Name</p>
+                    </div>
+                    <div class="project-info-item">
+                        <h4>Category</h4>
+                        <p id="modalCategory">Web Development</p>
+                    </div>
+                    <div class="project-info-item">
+                        <h4>Date</h4>
+                        <p id="modalDate">January 2025</p>
+                    </div>
+                </div>
+                <a href="#" class="project-btn" id="modalLink">View Project</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Kumaraswamy S. All Rights Reserved.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">DevFolio</div>
+                    <p>A passionate Full Stack Developer focused on creating clean, user-friendly, and innovative digital experiences.</p>
+                    <div class="social-links">
+                        
+                        <a href="https://www.instagram.com/manojkumbi" target="_blank" class="social-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://x.com/KUMARASWAMY28_" target="_blank" class="social-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kumaraswamys/" class="social-link" target="_blanks">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="https://github.com/kumaraswamys28" target="_blank" class="social-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Services</h3>
+                    <ul>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">App Development</a></li>
+                        <li><a href="#services">UI/UX Design</a></li>
+                        <li><a href="#services">Backend Development</a></li>
+                        <li><a href="#services">SEO Optimization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Have a Question?</h3>
+                    <ul>
+                        <li><a href="#contact">FAQ</a></li>
+                        <li><a href="#contact">Privacy Policy</a></li>
+                        <li><a href="#contact">Terms & Conditions</a></li>
+                        <li><a href="#contact">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DevFolio. All Rights Reserved. Designed by <a href="https://github.com/kumaraswamys28" style="color: var(--primary);">manojkumbi</a></p>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // Initialize Particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#6366f1"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": false,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#6366f1",
+                            "opacity": 0.2,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 0.5
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+
+            // Initialize ScrollTrigger
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                // Register ScrollTrigger plugin
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Fade Up Animation
+                const fadeUps = document.querySelectorAll('.fade-up');
+                fadeUps.forEach(element => {
+                    gsap.fromTo(element, {
+                        y: 50,
+                        opacity: 0
+                    }, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%",
+                            toggleClass: "active"
+                        }
+                    });
+                });
+
+                // Progress Bar Animation
+                const progressBars = document.querySelectorAll('.progress');
+                progressBars.forEach(progress => {
+                    const width = progress.getAttribute('data-width') + '%';
+                    gsap.to(progress, {
+                        width: width,
+                        duration: 1.5,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: progress,
+                            start: "top 80%"
+                        }
+                    });
+                });
+
+                // Floating Shapes Animation
+                const floatingShapes = document.querySelectorAll('.floating-shape');
+                floatingShapes.forEach((shape, index) => {
+                    gsap.to(shape, {
+                        y: index % 2 === 0 ? -15 : 15,
+                        x: index % 3 === 0 ? 10 : -10,
+                        rotation: index % 2 === 0 ? 5 : -5,
+                        duration: 2 + index,
+                        ease: "sine.inOut",
+                        repeat: -1,
+                        yoyo: true
+                    });
+                });
+
+                // Typing Animation for Hero Text
+                const typingText = document.querySelector('.typing-text');
+                if (typingText) {
+                    const words = ["Kumaraswamy S", "a Developer", "a Designer", "a Creator"];
+                    let currentWord = 0;
+                    let currentChar = 0;
+                    let isDeleting = false;
+                    let typeSpeed = 100;
+
+                    function type() {
+                        const word = words[currentWord];
+                        if (isDeleting) {
+                            typingText.textContent = word.substring(0, currentChar - 1);
+                            currentChar--;
+                        } else {
+                            typingText.textContent = word.substring(0, currentChar + 1);
+                            currentChar++;
+                        }
+
+                        if (!isDeleting && currentChar === word.length) {
+                            isDeleting = true;
+                            typeSpeed = 100;
+                            setTimeout(type, 1500);
+                        } else if (isDeleting && currentChar === 0) {
+                            isDeleting = false;
+                            currentWord = (currentWord + 1) % words.length;
+                            typeSpeed = 150;
+                            setTimeout(type, 500);
+                        } else {
+                            setTimeout(type, typeSpeed);
+                        }
+                    }
+
+                    setTimeout(type, 1000);
+                }
+            }
+
+            // Navigation Scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Portfolio Filter
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Portfolio Modal
+            const portfolioModal = document.getElementById('portfolioModal');
+            const modalClose = document.getElementById('modalClose');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDesc = document.getElementById('modalDesc');
+            const modalClient = document.getElementById('modalClient');
+            const modalCategory = document.getElementById('modalCategory');
+            const modalDate = document.getElementById('modalDate');
+            const modalLink = document.getElementById('modalLink');
+
+            // Project Data
+            let projects = []; // declare empty variable
+
+fetch('projects.json')
+  .then(response => response.json())
+  .then(data => {
+    projects = data;  // assign fetched data here
+    console.log('Projects loaded:', projects);
+    // you can now use projects here or call a function to render or process data
+  })
+  .catch(error => console.error(error));
+
+            
+            // Open Modal
+            portfolioItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const projectId = parseInt(this.getAttribute('data-id'));
+                    const project = projects.find(p => p.id === projectId);
+
+                    modalImage.src = project.url;
+                    modalTitle.textContent = project.title;
+                    modalDesc.textContent = project.desc;
+                    modalClient.textContent = project.client;
+                    modalCategory.textContent = project.category;
+                    modalDate.textContent = project.date;
+                    modalLink.href = project.link;
+
+                    portfolioModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close Modal
+            modalClose.addEventListener('click', function() {
+                portfolioModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Testimonial Slider
+            const testimonialWrapper = document.querySelector('.testimonial-slider');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.testimonial-wrapper');
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.style.display = 'block';
+                    } else {
+                        slide.style.display = 'none';
+                    }
+                });
+            }
+
+            // Initial state
+            showSlide(slideIndex);
+
+            // // Previous slide
+            // prevBtn.addEventListener('click', function() {
+            //     slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+            //     showSlide(slideIndex);
+            // });
+
+            // // Next slide
+            // nextBtn.addEventListener('click', function() {
+            //     slideIndex = (slideIndex + 1) % slides.length;
+            //     showSlide(slideIndex);
+            // });
+
+            // Contact Form
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // In a real application, you would send the form data to a server
+                    // For demo purposes, we'll just show an alert
+                    alert('Thank you for your message! I will get back to you soon.');
+                    contactForm.reset();
+                });
+            }
+
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth Scroll for Navigation Links
+            document.querySelectorAll('a[href^="#portfolio"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

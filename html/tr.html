@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Cube Animation</title>
+
+    <style>
+        /* Make the container a reference for absolute positioning */
+        .contact-info {
+          position: relative;
+          width: 100%;
+          height: 400px; /* Example height, adjust as needed */
+          overflow: hidden; /* Hides anything that might spill out */
+          border: 1px solid #ccc; /* Added a border to see the container */
+        }
+
+        /* Style the canvas to fill the container */
+        .webgl-canvas {
+          position: absolute;
+          top: 0;
+          left: 0;
+          outline: none; /* Removes the default focus outline */
+        }
+    </style>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.163.0/build/three.module.js"
+        }
+      }
+    </script>
+</head>
+<body>
+
+    <div class="contact-info fade-up">
+        <canvas class="webgl-canvas"></canvas>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        // Get the container and canvas
+        const container = document.querySelector('.contact-info');
+        const canvas = document.querySelector('.webgl-canvas');
+
+        // Basic Scene Setup
+        const scene = new THREE.Scene();
+
+        // Create a simple object (a cube)
+        const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5); // Made it slightly bigger
+        const material = new THREE.MeshNormalMaterial(); // A material that doesn't require light
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        // Sizes for responsiveness
+        const sizes = {
+          width: container.clientWidth,
+          height: container.clientHeight
+        };
+
+        // Camera Setup
+        const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+        camera.position.z = 3;
+        scene.add(camera);
+
+        // Renderer Setup
+        const renderer = new THREE.WebGLRenderer({
+          canvas: canvas,
+          alpha: true // Makes the background transparent
+        });
+        renderer.setSize(sizes.width, sizes.height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Handle window resizing
+        window.addEventListener('resize', () => {
+          // Update sizes
+          sizes.width = container.clientWidth;
+          sizes.height = container.clientHeight;
+
+          // Update camera aspect ratio
+          camera.aspect = sizes.width / sizes.height;
+          camera.updateProjectionMatrix();
+
+          // Update renderer
+          renderer.setSize(sizes.width, sizes.height);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        });
+
+        // Animation Loop
+        const animate = () => {
+          // Animate the cube
+          cube.rotation.x += 0.005;
+          cube.rotation.y += 0.005;
+
+          // Render the scene
+          renderer.render(scene, camera);
+
+          // Call animate again on the next frame
+          window.requestAnimationFrame(animate);
+        };
+
+        // Start the animation
+        animate();
+    </script>
+
+</body>
+</html>
