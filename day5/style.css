@@ -1,83 +1,86 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e9ecef;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #f1f3f4;
     margin: 0;
+    padding: 20px;
 }
 
 .container {
-    background: white;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    width: 350px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h1 {
     text-align: center;
+    color: #202124;
     margin-bottom: 20px;
-    color: #343a40;
 }
 
 .input-group {
     display: flex;
-    margin-bottom: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 input {
     flex: 1;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    height: 40px;
-    padding: 0 10px;
-    margin-right: 5px;
+    max-width: 500px;
+    padding: 12px 15px;
     font-size: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 8px 0 0 8px;
+    outline: none;
 }
 
 input:focus {
-    border-color: #28a745;
-    outline: none;
-    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    border-color: #4285f4;
+    box-shadow: 0 0 5px rgba(66, 133, 244, 0.5);
 }
 
 button {
-    width: 80px;
-    padding: 10px;
-    background-color: #28a745;
+    padding: 12px 20px;
+    background-color: #4285f4;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 0 8px 8px 0;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #3367d6;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
+/* Grid for tasks */
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
 }
 
-li {
+/* Individual task cards */
+.task-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(60,64,67,0.3);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #dee2e6;
-    transition: background-color 0.3s;
+    word-break: break-word;
 }
 
-li:hover {
-    background-color: #f8f9fa;
-}
-
-li.completed {
+.task-card.completed {
     text-decoration: line-through;
-    color: #6c757d;
+    color: #5f6368;
+}
+
+.task-card button {
+    background-color: #ea4335;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.task-card button:hover {
+    background-color: #c5221f;
 }

@@ -157,3 +157,9 @@ input[type="Submit"]:hover {
       height: 45px;
   }
 }
+form .txt_field {
+  position: relative;
+  margin: 20px 0;
+  /* Remove the gray border */
+  border-bottom: none;
+}
